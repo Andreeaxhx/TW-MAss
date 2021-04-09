@@ -208,4 +208,47 @@ body {
     background-color: #fa91c5;
     text-align: center;
   }
+
+  /*        FORM        */
   
+  
+form.firstForm {
+  width: 100%;
+  border: 2px solid red;
+  border-radius: 4px;
+}
+  
+img.eyes{
+  width: 30%;
+}
+
+input.eyesInput{
+  border: 2px solid red;
+  visibility: hidden;
+}
+
+label.eyesLabel{
+  padding-top: 90px;
+  filter: grayscale(0);
+  cursor: pointer;
+  filter: grayscale(90%);
+}
+
+label.eyesLabel:hover{
+  padding-top: 90px;
+  filter: grayscale(0);
+  cursor: pointer;
+}
+
+
+input[type="radio"]:checked + label {
+  filter: grayscale(0);
+}
+
+figure{
+
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+
+}

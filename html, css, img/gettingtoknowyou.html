@@ -47,10 +47,172 @@
 
     </header>
     <section id="showcase">
+      <!--
       <div class="container">
         <h1>There's supposed to be some boxes to fill in here:</h1>
         <p>COMING SOON</p>
       </div>
+      -->
+
+      <form class="firstForm" id="registrationForm" > 
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br><br> 
+        
+        <label for="gender">Gender:</label>
+        <input type="radio" name="gender" value="male" checked>
+        <label>Male</label>
+        <input type="radio" name="gender" value="female">
+        <label>Female</label><br><br>
+
+
+
+
+        <label for="hairColor">Hair color:</label><br>
+        <select id="hairColor" name="hairColor">
+          <option value="black">Black</option>
+          <option value="brown">brown</option>
+          <option value="blonde">blonde</option>
+          <option value="white">white</option>
+          <option value="red">red</option>
+          <option value="gray">gray</option>
+        </select>
+        <br><br>
+
+        <label for="hairType">Hair type:</label><br>
+        <select id="hairType" name="hairType">
+          <option value="straight">straight</option>
+          <option value="wavy">wavy</option>
+          <option value="curly">curly</option>
+          <option value="coily">coily</option>
+        </select>
+        <br><br>
+
+        <label for="hairLength">Hair length:</label><br>
+        <select id="hairLength" name="hairLength">
+          <option value="short">Short (<15 cm )</option>
+          <option value="medium">Medium (15-35 cm)</option>
+          <option value="long">Long (>35 cm)</option>
+        </select>
+        <br><br>
+        
+        <!--      EYES      -->
+
+        <fieldset>
+        
+          <label for="eyesColor">Eyes color:</label><br><br>
+
+            <!--  Black  -->
+            <input class="eyesInput" type="radio" name="eyesColor" id="blackEyes">
+            <label class = "eyesLabel" for="blackEyes">
+              <figure>
+                <img class="eyes" src="/eyesColor/black.jpg" alt="blackEyes">
+                <figcaption> Black </figcaption>
+              </figure>
+            </label>
+            
+            <!--  Baby Blue  -->
+            <input class="eyesInput" type="radio" name="eyesColor" id="babyBlueEyes">
+            <label class = "eyesLabel" for="babyBlueEyes">
+              <figure>
+                <img class="eyes" src="/eyesColor/babyblue.jpg" alt="babyBlueEyes">
+                <figcaption> Baby Blue </figcaption>
+              </figure>
+            </label>
+            
+            <!--  Brown  -->
+            <input class="eyesInput" type="radio" name="eyesColor" id="brownEyes">
+            <label class = "eyesLabel" for="brownEyes">
+              <figure>
+                  <img class="eyes" src="/eyesColor/brown.jpg" alt="brownEyes">
+                  <figcaption> Brown </figcaption>
+              </figure>
+            </label>
+
+            <!--  Cinnamon  -->
+            <input class="eyesInput" type="radio" name="eyesColor" id="cinnamonEyes">
+            <label class = "eyesLabel" for="cinnamonEyes">
+              <figure>
+                <img class="eyes" src="/eyesColor/cinnamon.jpg" alt="cinnamonEyes">
+                <figcaption> Cinnamon </figcaption>
+              </figure>
+              </div>
+            </label>
+
+            <!--  Green  -->
+            <input class="eyesInput" type="radio" name="eyesColor" id="greenEyes">
+            <label class = "eyesLabel" for="greenEyes">
+              <figure>
+                <img class="eyes" src="/eyesColor/green.jpg" alt="greenEyes">
+                <figcaption> Green </figcaption>
+              </figure>
+            </label>
+
+            <!--  Grey  -->
+            <input class="eyesInput" type="radio" name="eyesColor" id="greyEyes">
+            <label class = "eyesLabel" for="greyEyes">
+              <figure>
+                <img class="eyes" src="/eyesColor/grey.jpg" alt="greyEyes">
+                <figcaption> Grey </figcaption>
+              </figure>
+            </label>
+
+            <!--  Sapphire  -->
+            <input class="eyesInput" type="radio" name="eyesColor" id="sapphireEyes">
+            <label class = "eyesLabel" for="sapphireEyes">
+              <figure>
+                <img class="eyes" src="/eyesColor/sapphire.jpg" alt="sapphireEyes">
+                <figcaption> Sapphire </figcaption>
+              </figure>
+            </label>
+          
+        </fieldset>
+          <!--
+          <select id="eyesColor" name="eyesColor">
+          <option value="amber">Amber </option>
+          <option value="blue">Blue</option>
+          <option value="brown">Brown</option>
+          <option value="gray">Gray</option>
+          <option value="green">Green</option>
+          </select>
+          -->
+        
+        <br><br>
+
+        <label for="faceType">Face type:</label><br>
+        <select id="faceType" name="faceType">
+          <option value="heartShaped">Heart-Shaped</option>
+          <option value="invertedTriangle">Inverted Triangle</option>
+          <option value="round">Round</option>
+          <option value="square">Square</option>
+          <option value="rectangular">Rectangular</option>
+          <option value="diamond">Diamond</option>
+          <option value="triangle">Triangle</option>
+          <option value="oval">Oval</option>
+        </select>
+        <br><br>
+
+        <label for="skinColor">Skin Color:</label><br>
+        <select id="skinColor" name="skinColor">
+          <option type ="image" value="heartShaped" src="grayBlue.jpg">Heart-Shaped</option>
+          <option value="invertedTriangle">Inverted Triangle</option>
+          <option value="round">Round</option>
+          <option value="square">Square</option>
+          <option value="rectangular">Rectangular</option>
+          <option value="diamond">Diamond</option>
+          <option value="triangle">Triangle</option>
+          <option value="oval">Oval</option>
+        </select>
+
+        <br><br>
+
+
+        <br>
+        <div id="errorFN"></div>
+        <br>
+        <input type="color" >
+      </form>
+
     </section>
 
     <footer>
