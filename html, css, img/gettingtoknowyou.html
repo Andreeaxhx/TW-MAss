@@ -55,10 +55,13 @@
       -->
 
       <form class="firstForm" id="registrationForm" > 
-
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age"><br><br> 
+        <div class="age">
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age">
+        </div>
         
+        <br><br> 
+
         <label for="gender">Gender:</label>
         <input type="radio" name="gender" value="male" checked>
         <label>Male</label>
@@ -66,34 +69,435 @@
         <label>Female</label><br><br>
 
 
+        <!--      HAIR COLOR      -->
 
+        <fieldset>
+          <label for="hairColor">Hair color:</label><br>
 
-        <label for="hairColor">Hair color:</label><br>
-        <select id="hairColor" name="hairColor">
-          <option value="black">Black</option>
-          <option value="brown">brown</option>
-          <option value="blonde">blonde</option>
-          <option value="white">white</option>
-          <option value="red">red</option>
-          <option value="gray">gray</option>
-        </select>
+          <!-- Black -->
+          <input class="hairInput" type="radio" name="hairColor" id="blackHair">
+              <label class = "hairLabel" for="blackHair">
+                <figure class="hair">
+                  <img class="hair" src="/hairColor/black.jpg" alt="blackHair">
+                  <figcaption> Black </figcaption>
+                </figure>
+              </label>
+
+            <!-- Brown -->
+            <input class="hairInput" type="radio" name="hairColor" id="brownHair">
+            <label class = "hairLabel" for="brownHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/brown.jpg" alt="brownHair">
+                <figcaption> Brown </figcaption>
+              </figure>
+            </label>
+
+            <!-- Cinnamon -->
+            <input class="hairInput" type="radio" name="hairColor" id="cinnamonHair">
+            <label class = "hairLabel" for="cinnamonHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/cinnamon.jpg" alt="cinnamonHair">
+                <figcaption> Cinnamon </figcaption>
+              </figure>
+            </label>
+
+            <!-- Dark Blonde -->
+            <input class="hairInput" type="radio" name="hairColor" id="darkBlondeHair">
+            <label class = "hairLabel" for="darkBlondeHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/darkblonde.jpg" alt="darkBlondeHair">
+                <figcaption> Dark Blonde </figcaption>
+              </figure>
+            </label>
+
+            <!-- Dark Brown -->
+            <input class="hairInput" type="radio" name="hairColor" id="darkBrownHair">
+            <label class = "hairLabel" for="darkBrownHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/darkbrown.jpg" alt="darkBrownHair">
+                <figcaption> Dark Brown </figcaption>
+              </figure>
+            </label>
+
+            <!-- Dark Red -->
+            <input class="hairInput" type="radio" name="hairColor" id="darkRedHair">
+            <label class = "hairLabel" for="darkRedHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/darkred.jpg" alt="darkRedHair">
+                <figcaption>  Dark Red </figcaption>
+              </figure>
+            </label>
+
+            <!-- Gray -->
+            <input class="hairInput" type="radio" name="hairColor" id="grayHair">
+            <label class = "hairLabel" for="grayHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/gray.jpg" alt="grayHair">
+                <figcaption> Gray </figcaption>
+              </figure>
+            </label>
+
+            <!-- Green -->
+            <input class="hairInput" type="radio" name="hairColor" id="greenHair">
+            <label class = "hairLabel" for="greenHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/green.jpg" alt="greenHair">
+                <figcaption> Green </figcaption>
+              </figure>
+            </label>
+
+            <!-- Grey Brown -->
+            <input class="hairInput" type="radio" name="hairColor" id="greyBrownHair">
+            <label class = "hairLabel" for="greyBrownHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/greybrown.jpg" alt="greyBrownHair">
+                <figcaption> Grey Brown </figcaption>
+              </figure>
+            </label>
+
+            <!-- Light Blonde -->
+            <input class="hairInput" type="radio" name="hairColor" id="lightBlondeHair">
+            <label class = "hairLabel" for="lightBlondeHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/lightblonde.jpg" alt="lightBlondeHair">
+                <figcaption> Light Blonde </figcaption>
+              </figure>
+            </label>
+
+            <!-- Light Blue -->
+            <input class="hairInput" type="radio" name="hairColor" id="lightBlueHair">
+            <label class = "hairLabel" for="lightBlueHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/lightblue.jpg" alt="lightBlueHair">
+                <figcaption> Light Blue </figcaption>
+              </figure>
+            </label>
+
+            <!-- Light Cinnamon -->
+            <input class="hairInput" type="radio" name="hairColor" id="lightCinnamonHair">
+            <label class = "hairLabel" for="lightCinnamonHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/lightcinnamon.jpg" alt="lightCinnamonHair">
+                <figcaption> Light Cinnamon </figcaption>
+              </figure>
+            </label>
+
+            <!-- Light Gray -->
+            <input class="hairInput" type="radio" name="hairColor" id="lightGrayHair">
+            <label class = "hairLabel" for="lightGrayHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/lightgray.jpg" alt="lightGrayHair">
+                <figcaption> Light Gray </figcaption>
+              </figure>
+            </label>
+
+            <!-- Light Purple -->
+            <input class="hairInput" type="radio" name="hairColor" id="lightPurpleHair">
+            <label class = "hairLabel" for="lightPurpleHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/lightpurple.jpg" alt="lightPurpleHair">
+                <figcaption> Light Purple </figcaption>
+              </figure>
+            </label>
+
+            <!-- Orange -->
+            <input class="hairInput" type="radio" name="hairColor" id="orangeHair">
+            <label class = "hairLabel" for="orangeHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/orange.jpg" alt="orangeHair">
+                <figcaption> Orange </figcaption>
+              </figure>
+            </label>
+
+            <!-- Pink -->
+            <input class="hairInput" type="radio" name="hairColor" id="pinkHair">
+            <label class = "hairLabel" for="pinkHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/pink.jpg" alt="pinkHair">
+                <figcaption> Pink </figcaption>
+              </figure>
+            </label>
+
+            <!-- Red -->
+            <input class="hairInput" type="radio" name="hairColor" id="redHair">
+            <label class = "hairLabel" for="redHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/red.jpg" alt="redHair">
+                <figcaption> Red </figcaption>
+              </figure>
+            </label>
+
+            <!-- White -->
+            <input class="hairInput" type="radio" name="hairColor" id="whiteHair">
+            <label class = "hairLabel" for="whiteHair">
+              <figure class="hair">
+                <img class="hair" src="/hairColor/white.jpg" alt="whiteHair">
+                <figcaption> White </figcaption>
+              </figure>
+            </label>
+
+          </fieldset>           
+
         <br><br>
 
+        <!--      HAIR TYPE     -->
+      <fieldset>   
         <label for="hairType">Hair type:</label><br>
-        <select id="hairType" name="hairType">
-          <option value="straight">straight</option>
-          <option value="wavy">wavy</option>
-          <option value="curly">curly</option>
-          <option value="coily">coily</option>
-        </select>
-        <br><br>
 
-        <label for="hairLength">Hair length:</label><br>
-        <select id="hairLength" name="hairLength">
-          <option value="short">Short (<15 cm )</option>
-          <option value="medium">Medium (15-35 cm)</option>
-          <option value="long">Long (>35 cm)</option>
-        </select>
+        <!-- Afro Bun -->
+        <input class="hairTypeInput" type="radio" name="hairType" id="afro_bunHair">
+            <label class = "hairTypeLabel" for="afro_bunHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/afro_bun.jpg" alt="afro_bunHairType">
+                <figcaption> Afro Bun </figcaption>
+              </figure>
+            </label>
+
+            <!-- Afro Short -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="afro_shortHair">
+            <label class = "hairTypeLabel" for="afro_shortHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/afro_short.jpg" alt="afro_shortHairType">
+                <figcaption>  Afro Short </figcaption>
+              </figure>
+            </label>
+
+            <!-- Afro -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="afroHair">
+            <label class = "hairTypeLabel" for="afroHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/afro.jpg" alt="afroHairType">
+                <figcaption> Afro </figcaption>
+              </figure>
+            </label>
+
+            <!--Asymmetric -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="asymmetricHair">
+            <label class = "hairTypeLabel" for="asymmetricHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/asymmetric.jpg" alt="asymmetricHairType">
+                <figcaption> Asymmetric </figcaption>
+              </figure>
+            </label>
+
+            <!-- Bangs Bun -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="bangs_bunHair">
+            <label class = "hairTypeLabel" for="bangs_bunHair">
+              <figure  class="hair">
+                <img class="hairType" src="/hairType/bangs_bun.jpg" alt="bangs_bunHairType">
+                <figcaption> Bangs Bun </figcaption>
+              </figure>
+            </label>
+
+            <!-- Bold -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="boldHair">
+            <label class = "hairTypeLabel" for="boldHair">
+              <figure class="hair"> 
+                <img class="hairType" src="/hairType/bold.jpg" alt="boldHairType">
+                <figcaption> Bold </figcaption>
+              </figure>
+            </label>
+
+            <!-- Curly Bangs -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="curly_bangsHair">
+            <label class = "hairTypeLabel" for="curly_bangsHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/curly_bangs.jpg" alt="curly_bangsHairType">
+                <figcaption> Curly Bangs </figcaption>
+              </figure>
+            </label>
+
+            <!--Curly -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="curlyHair">
+            <label class = "hairTypeLabel" for="curlyHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/curly.jpg" alt="curlyHairType">
+                <figcaption> Curly </figcaption>
+              </figure>
+            </label>
+
+            <!-- Long Straight Part -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="long_straight_partHair">
+            <label class = "hairTypeLabel" for="long_straight_partHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/long_straight_part.jpg" alt="long_straight_partHairType">
+                <figcaption> Long Straight Part </figcaption>
+              </figure>
+            </label>
+
+            <!--  Long Straight -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="long_straightHair">
+            <label class = "hairTypeLabel" for="long_straightHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/long_straight.jpg" alt="long_straightHairType">
+                <figcaption> Long Straight </figcaption>
+              </figure>
+            </label>
+
+            <!-- Medium Bangs -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="medium_bangsHair">
+            <label class = "hairTypeLabel" for="medium_bangsHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/medium_bangs.jpg" alt="medium_bangsHairType">
+                <figcaption> Medium Bangs </figcaption>
+              </figure>
+            </label>
+
+            <!-- Not Straight -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="not_straightHair">
+            <label class = "hairTypeLabel" for="not_straightHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/not_straight.jpg" alt="not_straightHairType">
+                <figcaption> Not Straight </figcaption>
+              </figure>
+            </label>
+
+            <!-- Ponytail -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="ponytailHair">
+            <label class = "hairTypeLabel" for="ponytailHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/ponytail.jpg" alt="ponytailHairType">
+                <figcaption> Ponytail </figcaption>
+              </figure>
+            </label>
+
+            <!-- Ponytail Bangs -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="ponytail_bangsHair">
+            <label class = "hairTypeLabel" for="ponytail_bangsHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/ponytail_bangs.jpg" alt="ponytail_bangsHairType">
+                <figcaption> Ponytail Bangs </figcaption>
+              </figure>
+            </label>
+
+            <!-- Short Curly -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="short_curlyHair">
+            <label class = "hairTypeLabel" for="short_curlyHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/short_curly.jpg" alt="short_curlyHairType">
+                <figcaption> Short Curly </figcaption>
+              </figure>
+            </label>
+
+            <!-- Short Notstraight -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="short_notstraightHair">
+            <label class = "hairTypeLabel" for="short_notstraightHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/short_notstraight.jpg" alt="short_notstraightHairType">
+                <figcaption> Short Notstraight </figcaption>
+              </figure>
+            </label>
+
+            <!-- Short Not Straight -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="short_notstraightHair">
+            <label class = "hairTypeLabel" for="short_notstraightHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/short_notstraight.jpg" alt="short_notstraightHairType">
+                <figcaption> Short Not Straight </figcaption>
+              </figure>
+            </label>
+
+            <!-- short_straight_bangs -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="short_straight_bangsHair">
+            <label class = "hairTypeLabel" for="short_straight_bangsHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/short_straight_bangs.jpg" alt="short_straight_bangsHairType">
+                <figcaption> Short Straight Bangs </figcaption>
+              </figure>
+            </label>
+
+            <!-- short_straight -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="short_straightHair">
+            <label class = "hairTypeLabel" for="short_straightHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/short_straight.jpg" alt="short_straightHairType">
+                <figcaption> Short Straight </figcaption>
+              </figure>
+            </label>
+
+              <!-- short_wavy_bangs -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="short_wavy_bangsHair">
+            <label class = "hairTypeLabel" for="short_wavy_bangsHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/short_wavy_bangs.jpg" alt="HairType">
+                <figcaption> Short Wavy Bangs </figcaption>
+              </figure>
+            </label>
+
+            <!-- short_wavy_part -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="short_wavy_partHair">
+            <label class = "hairTypeLabel" for="short_wavy_partHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/short_wavy_part.jpg" alt="short_wavy_partHairType">
+                <figcaption> Short Wavy Part </figcaption>
+              </figure>
+            </label>
+
+              <!-- side  -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="sideHair">
+            <label class = "hairTypeLabel" for="sideHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/side.jpg" alt="sideHairType">
+                <figcaption> Side </figcaption>
+              </figure>
+            </label>
+
+            <!-- very_curly -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="very_curlyHair">
+            <label class = "hairTypeLabel" for="very_curlyHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/very_curly.jpg" alt="very_curlyHairType">
+                <figcaption> Very Curly </figcaption>
+              </figure>
+            </label>
+
+            <!-- very_short -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="very_shortHair">
+            <label class = "hairTypeLabel" for="very_shortHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/very_short.jpg" alt="very_shortHairType">
+                <figcaption> Very Short </figcaption>
+              </figure>
+            </label>
+
+            <!-- very_very_short -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="very_very_shortHair">
+            <label class = "hairTypeLabel" for="very_very_shortHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/very_very_short.jpg" alt="very_very_shortHairType">
+                <figcaption> Very Very Short </figcaption>
+              </figure>
+            </label>
+
+            <!-- wavy_bangs_too -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="wavy_bangs_tooHair">
+            <label class = "hairTypeLabel" for="wavy_bangs_tooHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/wavy_bangs_too.jpg" alt="wavy_bangs_tooHairType">
+                <figcaption> Wavy Bangs Too </figcaption>
+              </figure>
+            </label>
+
+            <!-- wavy_bangs -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="wavy_bangsHair">
+            <label class = "hairTypeLabel" for="wavy_bangsHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/wavy_bangs.jpg" alt="wavy_bangsHairType">
+                <figcaption> Wavy Bangs </figcaption>
+              </figure>
+            </label>
+
+            <!-- wavy_middle -->
+            <input class="hairTypeInput" type="radio" name="hairType" id="wavy_middleHair">
+            <label class = "hairTypeLabel" for="wavy_middleHair">
+              <figure class="hair">
+                <img class="hairType" src="/hairType/wavy_middle.jpg" alt="wavy_middleHairType">
+                <figcaption> Wavy Middle </figcaption>
+              </figure>
+            </label>
+
+
+      </fieldset>   
         <br><br>
         
         <!--      EYES      -->

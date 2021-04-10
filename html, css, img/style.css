@@ -217,7 +217,14 @@ form.firstForm {
   border: 2px solid red;
   border-radius: 4px;
 }
+
+/* AGE */
+.age{
+  text-align: center;
+}
   
+/* EYES */
+
 img.eyes{
   width: 30%;
 }
@@ -246,9 +253,67 @@ input[type="radio"]:checked + label {
 }
 
 figure{
-
   display: inline-block;
   margin: 0;
   padding: 0;
+}
 
+/* HAIR COLOR */
+
+img.hair{
+  width: 30%;
+}
+
+input.hairInput{
+  border: 2px solid red;
+  visibility: hidden;
+}
+
+label.hairLabel{
+  padding-top: 90px;
+  filter: grayscale(0);
+  cursor: pointer;
+  filter: grayscale(75%);
+}
+
+label.hairLabel:hover{
+  padding-top: 90px;
+  filter: grayscale(0);
+  cursor: pointer;
+}
+
+figure.hair{
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+/* HAIR TYPE*/
+
+img.hairType{
+  width: 30%;
+}
+
+input.hairTypeInput{
+  border: 2px solid red;
+  visibility: hidden;
+}
+
+label.hairTypeLabel{
+  padding-top: 90px;
+  filter: grayscale(0);
+  cursor: pointer;
+  filter: grayscale(75%);
+}
+
+label.hairTypeLabel:hover{
+  padding-top: 90px;
+  filter: grayscale(0);
+  cursor: pointer;
+}
+
+figure.hair{
+  display: inline-block;
+  margin: 0;
+  padding: 0;
 }
