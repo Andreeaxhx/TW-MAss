@@ -7,7 +7,8 @@
     <meta name="keywords" content="andreea, delia, tudor">
     <meta name="author" content="Andreea, Delia, Tudor">
     <title>MASS | Welcome</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/makeup.css">
   </head>
 
 
@@ -32,6 +33,7 @@
             </div>
           </div> 
           <a href="gettingtoknowyou.html">TELL US MORE ABOUT YOU</a>
+          <a href="products.html">PRODUCTS</a>
         </div>
 
       <section id="search-bar">
@@ -62,14 +64,96 @@
 
 
         </div>
-        </div>
+      </div>
   
+      <div class='another_container'>
+        <div class='question'>
+          <p>Should the makeup be waterproof?</p>
 
-        <div class='another_container'>
-          <div class='question'>
-            <p>Learning Js Properly: Project #1 - Dynamic Quiz</p>
+          <button class="button">yes</button>
+          <button class="button">no</button>
+
+
+        </div>
+      </div>
+
+      <div class='another_container'>
+        <div class='question'>
+          <p>Based on color of your eyes, these are the eyeshadow that match!</p>
+          <input type="color" list="eyeshadowColors">
+            <datalist id="eyeshadowColors">
+              <option>#4B0082</option>
+              <option>#6495ED</option>
+              <option>#708090</option>
+              <option>#800080</option>
+              <option>#9370DB</option>
+            </datalist>
+
+          <input type="color" list="eyeshadowColors">
+          <input type="color" list="eyeshadowColors"> <br><br>
+          <input type="radio" style="vertical-align: middle" id="lipstick">
+          <label for="lipstick" style="vertical-align: middle">I prefer no eyeshadow</label>
+
+        </div>
+      </div>
+
+      <div class='another_container'>
+        <div class='question'>
+          <p>Would you like false eyelashes?</p>
+
+          <button class="button">yes</button>
+          <button class="button">no</button>
+
+          <p>If yes, should they be more natural or dramatic?</p>
+
+          <button class="button">natural</button>
+          <button class="button">dramatic</button>
+
+
+        </div>
+      </div>
+
+
+      <div class='another_container'>
+        <div class='question'>
+          <p>Choose a shade of lipstick:</p>
+          <input type="color" list="lipstickColors">
+            <datalist id="lipstickColors">
+              <option>#BA55D3</option>
+              <option>#C71585</option>
+              <option>#F08080</option>
+              <option>#FF0000</option>
+              <option>#FF6347</option>
+            </datalist>
+
+          <input type="color" list="lipstickColors">
+          <input type="color" list="lipstickColors"><br> <br>
+          <input type="radio" style="vertical-align: middle" id="lipstick">
+          <label for="lipstick" style="vertical-align: middle">I prefer my natural shade</label>
+
+
+        </div>
+      </div>
+
+      <div class='another_container'>
+        <div class='question'>
+
+          <label class= "question" for="quest">How long would you like your makeup to last?</label>
+
+          <div class="hours">
+            <input type="radio" style="vertical-align: middle; margin: 0px;" name ="quest" id="quest">
+            <label for="quest">2 - 4 hrs</label><br>
+
+            <input type="radio" style="vertical-align: middle; margin: 0px;"  name ="quest" id="quest">
+            <label for="quest">4 - 8 hrs</label><br>
+
+            <input type="radio" style="vertical-align: middle; margin: 0px;" name ="quest" id="quest">
+            <label for="quest">8 - 16 hrs</label>
           </div>
-             </div>
+
+
+        </div>
+      </div>
 
     </section>
 
