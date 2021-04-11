@@ -214,16 +214,27 @@ body {
   
 form.firstForm {
   width: 100%;
-  border: 2px solid red;
-  border-radius: 4px;
+  /*border: 2px solid red;
+  border-radius: 4px;*/
 }
 
 /* AGE */
+
 .age{
   text-align: center;
+  padding: 25px;
 }
   
 /* EYES */
+
+div.titleEyes{
+  
+  background-color: #fa91c5;
+  background-size: 100% 1px;
+  font-weight: bold;
+  font-size: 40px;
+  font-style:initial;
+}
 
 img.eyes{
   width: 30%;
@@ -260,6 +271,14 @@ figure{
 
 /* HAIR COLOR */
 
+div.titleHairColor{
+  background-color: #fa91c5;
+  background-size: 100% 1px;
+  font-weight: bold;
+  font-size: 40px;
+  font-style:initial;
+}
+
 img.hair{
   width: 30%;
 }
@@ -290,6 +309,16 @@ figure.hair{
 
 /* HAIR TYPE*/
 
+div.titleHairType{
+  
+  background-color: #fa91c5;
+  background-size: 100% 1px;
+  font-weight: bold;
+  font-size: 40px;
+  font-style:initial;
+}
+
+
 img.hairType{
   width: 30%;
 }
@@ -318,107 +347,82 @@ figure.hair{
   padding: 0;
 }
 
+/* SKIN COLOR */
 
-
-/* MAKEUP PAGE */
-
-div.question {
-  text-align: center;
-  font-size: 12px;
-}
-
-#title {
-  text-decoration: none;
-}
-
-#quiz {
-  text-indent: 10px;
-  display:none;
-}
-
-.button {
-  /*border:4px solid;
-  border-radius:5px;*/
-  width: 40px;
-  padding-left:5px;
-  padding-right: 5px;
-  position: relative;
-  float:right;
-  background-color: #000000;
-  color: rgb(255, 254, 254);
-  margin: 0 2px 0 2px;
-}
-
-.button.active {
-  background-color: #F8F8FF;
-  color: #525252;
-}
-
-button {
-  position: relative;
-  float:right;
-}
-
-.button a {
-  text-decoration: none;
-  color: rgb(180, 162, 162);
-}
-
-.another_container {
+div.skinColorTitle{
   
-  width:50%;
-  margin: 25px auto;
-  padding: 0 25px 40px 10px;
-  background-color: #948589;
-  border:4px solid #696163;
-  /*border-radius:5px;*/
-  color: #FFFFFF;
+  background-color: #fa91c5;
+  background-size: 100% 1px;
   font-weight: bold;
-  /*box-shadow: 5px 5px 5px #888;*/
+  font-size: 40px;
+  font-style:initial;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+img.skinColorImg{
+  width: 30%;
 }
 
-.question{
-  
-  align-items: center;
-  justify-content: center;
+input.skinColorInput{
+  border: 2px solid red;
+  visibility: hidden;
 }
 
-.button{
-  position: relative;
-  background-color: #FFFFFF;
-  border: none;
-  color: #000000;
-  padding: 0;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
+label.skinColorLabel{
+  padding-top: 90px;
+  filter: grayscale(0);
+  cursor: pointer;
+  filter: grayscale(90%);
+}
+
+label.skinColorLabel:hover{
+  padding-top: 90px;
+  filter: grayscale(0);
   cursor: pointer;
 }
 
-.button:hover {
-  background-color: #4CAF50;
-  color: white;
+
+/* FACE */
+
+div.faceTitle{
+  
+  background-color: #fa91c5;
+  background-size: 100% 1px;
+  font-weight: bold;
+  font-size: 40px;
+  font-style:initial;
 }
 
-.button:checked {
-  background-color: #4CAF50;
-  color: white;
+img.faceImg{
+  width: 30%;
 }
 
-#prev {
-  display:none;
+input.faceInput{
+  border: 2px solid red;
+  visibility: hidden;
 }
 
-#start {
-  display:none;
-  width: 90px;
+label.faceLabel{
+  padding-top: 90px;
+  filter: grayscale(0);
+  cursor: pointer;
+  filter: grayscale(90%);
+}
+
+label.faceLabel:hover{
+  padding-top: 90px;
+  filter: grayscale(0);
+  cursor: pointer;
+}
+
+/* SUBMIT BUTTON */
+
+input[type=submit]{
+    background-color: #b19fa4; /* Green */
+    border: none;
+    color: #ebe0e5;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
