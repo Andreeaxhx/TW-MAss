@@ -214,16 +214,27 @@ body {
   
 form.firstForm {
   width: 100%;
-  border: 2px solid red;
-  border-radius: 4px;
+  /*border: 2px solid red;
+  border-radius: 4px;*/
 }
 
 /* AGE */
+
 .age{
   text-align: center;
+  padding: 25px;
 }
   
 /* EYES */
+
+div.titleEyes{
+  
+  background-color: #fa91c5;
+  background-size: 100% 1px;
+  font-weight: bold;
+  font-size: 40px;
+  font-style:initial;
+}
 
 img.eyes{
   width: 30%;
@@ -260,6 +271,14 @@ figure{
 
 /* HAIR COLOR */
 
+div.titleHairColor{
+  background-color: #fa91c5;
+  background-size: 100% 1px;
+  font-weight: bold;
+  font-size: 40px;
+  font-style:initial;
+}
+
 img.hair{
   width: 30%;
 }
@@ -290,6 +309,16 @@ figure.hair{
 
 /* HAIR TYPE*/
 
+div.titleHairType{
+  
+  background-color: #fa91c5;
+  background-size: 100% 1px;
+  font-weight: bold;
+  font-size: 40px;
+  font-style:initial;
+}
+
+
 img.hairType{
   width: 30%;
 }
@@ -316,4 +345,84 @@ figure.hair{
   display: inline-block;
   margin: 0;
   padding: 0;
+}
+
+/* SKIN COLOR */
+
+div.skinColorTitle{
+  
+  background-color: #fa91c5;
+  background-size: 100% 1px;
+  font-weight: bold;
+  font-size: 40px;
+  font-style:initial;
+}
+
+img.skinColorImg{
+  width: 30%;
+}
+
+input.skinColorInput{
+  border: 2px solid red;
+  visibility: hidden;
+}
+
+label.skinColorLabel{
+  padding-top: 90px;
+  filter: grayscale(0);
+  cursor: pointer;
+  filter: grayscale(90%);
+}
+
+label.skinColorLabel:hover{
+  padding-top: 90px;
+  filter: grayscale(0);
+  cursor: pointer;
+}
+
+
+/* FACE */
+
+div.faceTitle{
+  
+  background-color: #fa91c5;
+  background-size: 100% 1px;
+  font-weight: bold;
+  font-size: 40px;
+  font-style:initial;
+}
+
+img.faceImg{
+  width: 30%;
+}
+
+input.faceInput{
+  border: 2px solid red;
+  visibility: hidden;
+}
+
+label.faceLabel{
+  padding-top: 90px;
+  filter: grayscale(0);
+  cursor: pointer;
+  filter: grayscale(90%);
+}
+
+label.faceLabel:hover{
+  padding-top: 90px;
+  filter: grayscale(0);
+  cursor: pointer;
+}
+
+/* SUBMIT BUTTON */
+
+input[type=submit]{
+    background-color: #b19fa4; /* Green */
+    border: none;
+    color: #ebe0e5;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }

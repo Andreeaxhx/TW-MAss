@@ -57,23 +57,29 @@
       <form class="firstForm" id="registrationForm" > 
         <div class="age">
           <label for="age">Age:</label>
-          <input type="number" id="age" name="age">
+          <input type="number" name="age" min="15" max="99" size="1" maxlength="2">
         </div>
-        
-        <br><br> 
+
+        <br>
 
         <label for="gender">Gender:</label>
         <input type="radio" name="gender" value="male" checked>
         <label>Male</label>
         <input type="radio" name="gender" value="female">
-        <label>Female</label><br><br>
+        <label>Female</label>
+
+        <br><br>
+        <br><br>
 
 
         <!--      HAIR COLOR      -->
 
-        <fieldset>
-          <label for="hairColor">Hair color:</label><br>
-
+        <div>
+          <div class="titleHairColor"> 
+            <label for="hairColor">Hair color</label>
+          </div>
+          <br>
+          <br>
           <!-- Black -->
           <input class="hairInput" type="radio" name="hairColor" id="blackHair">
               <label class = "hairLabel" for="blackHair">
@@ -236,14 +242,18 @@
               </figure>
             </label>
 
-          </fieldset>           
+          </div>           
 
         <br><br>
 
         <!--      HAIR TYPE     -->
-      <fieldset>   
-        <label for="hairType">Hair type:</label><br>
+      <div>   
+        <div class="titleHairType">
+          <label for="hairType">Hair type</label>
+        </div>
 
+        <br>
+        
         <!-- Afro Bun -->
         <input class="hairTypeInput" type="radio" name="hairType" id="afro_bunHair">
             <label class = "hairTypeLabel" for="afro_bunHair">
@@ -497,15 +507,182 @@
             </label>
 
 
-      </fieldset>   
+      </div>   
         <br><br>
         
+      <!--      SKIN COLOR     -->
+      <div>   
+        <div class="skinColorTitle">
+          <label for="skinColor">Skin color</label>
+        </div>
+
+        <br>
+
+        <!-- 1 -->
+        <input class="skinColorInput" type="radio" name="skinColor" id="skinColor1">
+            <label class = "skinColorLabel" for="skinColor1">
+              <figure class="skinColorFig">
+                <img class="skinColorImg" src="/skinColor/1.jpg" alt="skinColor1">
+                <figcaption> 1 </figcaption>
+              </figure>
+            </label>
+
+        <!-- 2 -->
+        <input class="skinColorInput" type="radio" name="skinColor" id="skinColor2">
+            <label class = "skinColorLabel" for="skinColor2">
+              <figure class="skinColorFig">
+                <img class="skinColorImg" src="/skinColor/2.jpg" alt="skinColor2">
+                <figcaption> 2  </figcaption>
+              </figure>
+            </label>
+
+        <!-- 3  -->
+        <input class="skinColorInput" type="radio" name="skinColor" id="skinColor3">
+        <label class = "skinColorLabel" for="skinColor3">
+          <figure class="skinColorFig">
+            <img class="skinColorImg" src="/skinColor/3.jpg" alt="skinColor3">
+            <figcaption> 3  </figcaption>
+          </figure>
+        </label>
+
+        <!-- 4 -->
+        <input class="skinColorInput" type="radio" name="skinColor" id="skinColor4">
+            <label class = "skinColorLabel" for="skinColor4">
+              <figure class="skinColorFig">
+                <img class="skinColorImg" src="/skinColor/4.jpg" alt="skinColor4">
+                <figcaption> 4  </figcaption>
+              </figure>
+            </label>
+
+        <!-- 5 -->
+        <input class="skinColorInput" type="radio" name="skinColor" id="skinColor5">
+        <label class = "skinColorLabel" for="skinColor5">
+          <figure class="skinColorFig">
+            <img class="skinColorImg" src="/skinColor/5.jpg" alt="skinColor5">
+            <figcaption> 5 </figcaption>
+          </figure>
+        </label>
+
+        <!-- 6 -->
+        <input class="skinColorInput" type="radio" name="skinColor" id="skinColor6">
+            <label class = "skinColorLabel" for="skinColor6">
+              <figure class="skinColorFig">
+                <img class="skinColorImg" src="/skinColor/6.jpg" alt="skinColor6">
+                <figcaption>  6 </figcaption>
+              </figure>
+            </label>
+
+        <!-- 7 -->
+        <input class="skinColorInput" type="radio" name="skinColor" id="skinColor7">
+        <label class = "skinColorLabel" for="skinColor7">
+          <figure class="skinColorFig">
+            <img class="skinColorImg" src="/skinColor/7.jpg" alt="skinColor7">
+            <figcaption> 7 </figcaption>
+          </figure>
+        </label>
+
+        <!-- 8 -->
+        <input class="skinColorInput" type="radio" name="skinColor" id="skinColor8">
+            <label class = "skinColorLabel" for="skinColor8">
+              <figure class="skinColorFig">
+                <img class="skinColorImg" src="/skinColor/8.jpg" alt="skinColor8">
+                <figcaption> 8 </figcaption>
+              </figure>
+            </label>
+
+        <!-- 9 -->
+        <input class="skinColorInput" type="radio" name="skinColor" id="skinColor9">
+        <label class = "skinColorLabel" for="skinColor9">
+          <figure class="skinColorFig">
+            <img class="skinColorImg" src="/skinColor/9.jpg" alt="skinColor9">
+            <figcaption> 9 </figcaption>
+          </figure>
+        </label>
+
+        <!-- 10 -->
+        <input class="skinColorInput" type="radio" name="skinColor" id="skinColor10">
+            <label class = "skinColorLabel" for="skinColor10">
+              <figure class="skinColorFig">
+                <img class="skinColorImg" src="/skinColor/10.jpg" alt="skinColor10">
+                <figcaption> 10 </figcaption>
+              </figure>
+            </label>
+
+      </div>   
+      
+      <br><br>
+
+      <!--      FACE     -->
+      <div>   
+        <div class="faceTitle">
+          <label for="face">Face Shape</label>
+        </div>
+        <br>
+        <!-- 1 -->
+        <input class="faceInput" type="radio" name="face" id="face1">
+            <label class = "faceLabel" for="face1">
+              <figure class="faceFig">
+                <img class="faceImg" src="/faceType/1.jpg" alt="face1">
+                <figcaption> 1 </figcaption>
+              </figure>
+            </label>
+
+        <!-- 2 -->
+        <input class="faceInput" type="radio" name="face" id="face2">
+            <label class = "faceLabel" for="face2">
+              <figure class="faceFig">
+                <img class="faceImg" src="/faceType/2.jpg" alt="face2">
+                <figcaption> 2 </figcaption>
+              </figure>
+            </label>
+
+        <!-- 3 -->
+        <input class="faceInput" type="radio" name="face" id="face3">
+        <label class = "faceLabel" for="face3">
+          <figure class="faceFig">
+            <img class="faceImg" src="/faceType/3.jpg" alt="face3">
+            <figcaption> 3 </figcaption>
+          </figure>
+        </label>
+
+        <!-- 4 -->
+        <input class="faceInput" type="radio" name="face" id="face4">
+            <label class = "faceLabel" for="face4">
+              <figure class="faceFig">
+                <img class="faceImg" src="/faceType/4.jpg" alt="face4">
+                <figcaption> 4 </figcaption>
+              </figure>
+            </label>
+
+        <!-- 5 -->
+        <input class="faceInput" type="radio" name="face" id="face5">
+        <label class = "faceLabel" for="face5">
+          <figure class="faceFig">
+            <img class="faceImg" src="/faceType/5.jpg" alt="face5">
+            <figcaption> 5 </figcaption>
+          </figure>
+        </label>
+
+        <!-- 6 -->
+        <input class="faceInput" type="radio" name="face" id="face6">
+            <label class = "faceLabel" for="face6">
+              <figure class="faceFig">
+                <img class="faceImg" src="/faceType/6.jpg" alt="face6">
+                <figcaption> 6 </figcaption>
+              </figure>
+            </label>
+
+      </div>
+
+      <br><br>
+
         <!--      EYES      -->
 
-        <fieldset>
-        
-          <label for="eyesColor">Eyes color:</label><br><br>
-
+        <div>
+            <div class="titleEyes">
+              <label for="eyesColor">Eyes color</label>
+            </div>
+          <br><br>
             <!--  Black  -->
             <input class="eyesInput" type="radio" name="eyesColor" id="blackEyes">
             <label class = "eyesLabel" for="blackEyes">
@@ -540,7 +717,6 @@
                 <img class="eyes" src="/eyesColor/cinnamon.jpg" alt="cinnamonEyes">
                 <figcaption> Cinnamon </figcaption>
               </figure>
-              </div>
             </label>
 
             <!--  Green  -->
@@ -570,51 +746,17 @@
               </figure>
             </label>
           
-        </fieldset>
-          <!--
-          <select id="eyesColor" name="eyesColor">
-          <option value="amber">Amber </option>
-          <option value="blue">Blue</option>
-          <option value="brown">Brown</option>
-          <option value="gray">Gray</option>
-          <option value="green">Green</option>
-          </select>
-          -->
-        
-        <br><br>
-
-        <label for="faceType">Face type:</label><br>
-        <select id="faceType" name="faceType">
-          <option value="heartShaped">Heart-Shaped</option>
-          <option value="invertedTriangle">Inverted Triangle</option>
-          <option value="round">Round</option>
-          <option value="square">Square</option>
-          <option value="rectangular">Rectangular</option>
-          <option value="diamond">Diamond</option>
-          <option value="triangle">Triangle</option>
-          <option value="oval">Oval</option>
-        </select>
-        <br><br>
-
-        <label for="skinColor">Skin Color:</label><br>
-        <select id="skinColor" name="skinColor">
-          <option type ="image" value="heartShaped" src="grayBlue.jpg">Heart-Shaped</option>
-          <option value="invertedTriangle">Inverted Triangle</option>
-          <option value="round">Round</option>
-          <option value="square">Square</option>
-          <option value="rectangular">Rectangular</option>
-          <option value="diamond">Diamond</option>
-          <option value="triangle">Triangle</option>
-          <option value="oval">Oval</option>
-        </select>
+        </div>
 
         <br><br>
+        <br><br>
 
-
+        <input type="submit" value="Submit">
         <br>
-        <div id="errorFN"></div>
         <br>
-        <input type="color" >
+
+       
+
       </form>
 
     </section>
