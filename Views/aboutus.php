@@ -7,8 +7,7 @@
     <meta name="keywords" content="andreea, delia, tudor">
     <meta name="author" content="Andreea, Delia, Tudor">
     <title>MASS | Welcome</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="./css/style.css">
   </head>
 
 
@@ -21,19 +20,19 @@
         </div>
 
         <div class="navbar">
-          <a href="home.html">HOME</a>
-          <a href="aboutus.html">ABOUT US</a>
+          <a href="./home">HOME</a>
+          <a href="./aboutus">ABOUT US</a>
           <div class="dropdown">
             <button class="dropbtn">ADVICE 
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="makeup.html">MAKE-UP</a>
-              <a href="skincare.html">SKINCARE</a>
+              <a href="./makeup">MAKE-UP</a>
+              <a href="./skincare">SKINCARE</a>
             </div>
           </div> 
-          <a href="gettingtoknowyou.html">TELL US MORE ABOUT YOU</a>
-          <a href="products.html">PRODUCTS</a>
+          <a href="./gettingtoknowyou">TELL US MORE ABOUT YOU</a>
+          <a href="./products">PRODUCTS</a>
         </div>
 
       <section id="search-bar">
@@ -48,32 +47,28 @@
       </div>
 
     </header>
-    <section id="showcase">
-      <div class="container">
-        <h1>Make-up advice</h1>
-        <!--<p>COMING SOON</p>-->
-      </div>
-
-
-
-
-      <figure class="products">
-        <img class="products" src="/pictures/products/fdt_fenty.jpg" alt="fdt">
-        <figcaption> Fenty Foundation  </figcaption>
-      </figure>
-
-      <figure class="products">
-        <img class="products" src="/pictures/products/fdt_ysl.jpg" alt="fdt">
-        <figcaption> Yves Saint Laurent Foundation  </figcaption>
-      </figure>
-
-    </section>
-
-    
-    <footer>
-    <p>MASS, Copyright &copy, 2021</p>
-  </footer>
-  </body>
-
-
-</html>
+    <section id="boxes">
+        <div class="container">
+          <div class="box">
+            <img src="./pictures/delia.jpg">
+            <h3>Delia Stoica</h3>
+          </div>
+          <div class="box">
+            <img src="./pictures/tudor.jpg">
+            <h3>Tudor Vasilache</h3>
+          </div>
+          <div class="box">
+            <img src="./pictures/andreea.jpg">
+            <h3>Andreea Pădurariu</h3>
+          </div>
+        </div>
+      </section>
+      <section id="main">
+        <div class="container">
+        </div>
+      </section>
+      <footer>
+      <p>PiRo, Copyright &copy, 2020</p>
+    </footer>
+    </body>
+  </html>

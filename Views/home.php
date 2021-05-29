@@ -1,3 +1,9 @@
+<?php 
+session_start();
+
+  $_SESSION;
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -7,7 +13,7 @@
     <meta name="keywords" content="andreea, delia, tudor">
     <meta name="author" content="Andreea, Delia, Tudor">
     <title>MASS | Welcome</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
   </head>
 
 
@@ -20,19 +26,19 @@
         </div>
 
         <div class="navbar">
-          <a href="home.html">HOME</a>
-          <a href="aboutus.html">ABOUT US</a>
+          <a href="./home">HOME</a>
+          <a href="./aboutus">ABOUT US</a>
           <div class="dropdown">
             <button class="dropbtn">ADVICE 
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="makeup.html">MAKE-UP</a>
-              <a href="skincare.html">SKINCARE</a>
+              <a href="./makeup">MAKE-UP</a>
+              <a href="./skincare">SKINCARE</a>
             </div>
           </div> 
-          <a href="gettingtoknowyou.html">TELL US MORE ABOUT YOU</a>
-          <a href="products.html">PRODUCTS</a>
+          <a href="./gettingtoknowyou">TELL US MORE ABOUT YOU</a>
+          <a href="./products">PRODUCTS</a>
         </div>
 
       <section id="search-bar">
@@ -52,21 +58,21 @@
         <h1>News</h1>
         <p>We are constantly updating our content, in order for you to keep up with the latest trends in the beauty industry.</p>
         <div class="boxy">
-          <img src="pictures/back.jpg">
+          <img src="./pictures/back.jpg">
         </div>
         <h4>Our favorite eyeshadow palettes of 2021</h4>
         <ul>
           <li>1. Huda Beauty : Toffee Brown</li>
           <div class="boxpalettes">
-            <img src="pictures/toffee.jpg">
+            <img src="./pictures/toffee.jpg">
           </div>
           <li>2. Colourpop : Lizzie McGuire</li>
           <div class="boxpalettes">
-            <img src="pictures/lizzie.jpg">
+            <img src="./pictures/lizzie.jpg">
           </div>
           <li>3. Urban Decay : Wild West</li>
           <div class="boxpalettes">
-            <img src="pictures/wildwest.jpg">
+            <img src="./pictures/wildwest.jpg">
           </div>
        </ul>
       </div>

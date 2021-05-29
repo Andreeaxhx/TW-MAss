@@ -7,8 +7,8 @@
     <meta name="keywords" content="andreea, delia, tudor">
     <meta name="author" content="Andreea, Delia, Tudor">
     <title>MASS | Welcome</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/makeup.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/makeup.css">
   </head>
 
 
@@ -21,19 +21,19 @@
         </div>
 
         <div class="navbar">
-          <a href="home.html">HOME</a>
-          <a href="aboutus.html">ABOUT US</a>
+          <a href="./home">HOME</a>
+          <a href="./aboutus">ABOUT US</a>
           <div class="dropdown">
             <button class="dropbtn">ADVICE 
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="makeup.html">MAKE-UP</a>
-              <a href="skincare.html">SKINCARE</a>
+              <a href="./makeup">MAKE-UP</a>
+              <a href="./skincare">SKINCARE</a>
             </div>
           </div> 
-          <a href="gettingtoknowyou.html">TELL US MORE ABOUT YOU</a>
-          <a href="products.html">PRODUCTS</a>
+          <a href="./gettingtoknowyou">TELL US MORE ABOUT YOU</a>
+          <a href="./products">PRODUCTS</a>
         </div>
 
       <section id="search-bar">
