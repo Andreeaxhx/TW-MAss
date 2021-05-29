@@ -1,4 +1,4 @@
-.column {
+.row {
   display: flex;
   flex-wrap: wrap;
   padding: 0 4px;
@@ -6,7 +6,7 @@
 }
 
 /* Create four equal columns that sits next to each other */
-.row {
+.column {
   flex: 25%;
   max-width: 75%;
   padding: 0 4px;
@@ -21,7 +21,7 @@ figcaption {
   padding: 20px 20px 20px 20px;
   margin-top: 8px;
   vertical-align: middle;
-  width: 100%;
+  width: 150%;
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
