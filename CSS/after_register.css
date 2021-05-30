@@ -1,0 +1,8 @@
+.showcase p {
+	font-family: titleFont;
+    font-weight: 100;
+    font-size: 28px;
+    padding: 0px 0px;
+    color: whitesmoke;
+    display: inline-block;
+}

@@ -7,53 +7,39 @@
     <meta name="keywords" content="andreea, delia, tudor">
     <meta name="author" content="Andreea, Delia, Tudor">
     <title>MASS | Welcome</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/makeup.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/makeup.css">
   </head>
 
-
-  <body>
+<body>
     <header>
       <div class="container">
         <div id="branding">
           <h1>Your virtual Beauty Assistant</h1>
         </div>
-        </div>
-
-        <div class="navbar">
-          <a href="./home">HOME</a>
-          <a href="./aboutus">ABOUT US</a>
-          <div class="dropdown">
-            <button class="dropbtn">ADVICE 
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="./makeup">MAKE-UP</a>
-              <a href="./skincare">SKINCARE</a>
-            </div>
-          </div> 
-          <a href="./gettingtoknowyou">TELL US MORE ABOUT YOU</a>
-          <a href="./products">PRODUCTS</a>
-        </div>
-
-      <section id="search-bar">
-
-          <form>
-            <input type="text" placeholder="Start typing...">
-            <button type="search" class="button_1">SEARCH</button>
-          </form>
-
-      </section>
-      </nav>
       </div>
 
+      <!--navigation bar-->
+
+      <div class="navbar">
+        <a href="home.php">HOME</a>
+        <a href="register.php">REGISTER</a>
+        <a href="admin.php">ADMIN</a>
+        <a href="aboutus.php">ABOUT US</a>
+        <div class="dropdown">
+          <button class="dropbtn">ADVICE<i class="fa fa-caret-down"></i></button>
+          <div class="dropdown-content">
+            <a href="makeup.php">MAKE-UP</a>
+            <a href="skincare.php">SKINCARE</a>
+          </div>
+        </div> 
+        <a href="tumay.php">TELL US MORE ABOUT YOU</a>
+        <a href="products.php">PRODUCTS</a>
+      </div>
     </header>
-    <section id="showcase">
-      <div class="container">
-        <h1>Make-up advice</h1>
-        <!--<p>COMING SOON</p>-->
-      </div>
 
+    <section id="showcase">
+      <div class="container"><h1>Make-up advice</h1></div>
 
       <div class='another_container'>
         <div class='question'>
@@ -61,7 +47,6 @@
 
           <button class="button">day</button>
           <button class="button">night</button>
-
 
         </div>
       </div>
@@ -72,7 +57,6 @@
 
           <button class="button">yes</button>
           <button class="button">no</button>
-
 
         </div>
       </div>
@@ -157,11 +141,6 @@
 
     </section>
 
-    
-    <footer>
-    <p>MASS, Copyright &copy, 2021</p>
-  </footer>
+    <footer><p>MASS, Copyright &copy, 2021</p></footer>
   </body>
-
-
 </html>

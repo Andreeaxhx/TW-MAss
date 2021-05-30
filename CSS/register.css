@@ -1,0 +1,42 @@
+main{
+    border-radius: 5px;
+  background-color: #000000;
+  padding: 0px;
+}
+
+form{
+
+    
+}
+
+main p{
+    font-size: 1.2em;   
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.registerButton {
+    font-family: JosefinSans;
+    background-color:rgba(0,0,0, 0.15);
+    border: none;
+    color: whitesmoke;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.6em;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    width: 65%;
+    border-radius: 2em;
+    padding: 0.3em;
+    height: fit-content;
+  }
+
+.registerButton:hover{
+  background-color:rgb(255, 255, 255, 0.55);
+  color: #1589b7;
+}
+
