@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+require '../bd/bd.php';
 //initializarea variabilelor
 
 $username = "";
@@ -11,7 +11,7 @@ $password = "";
 $errors = array();
 //conn to db
 
-$db = mysqli_connect('remotemysql.com', 'cL0nbtnGzn', 'Wxj7CaYFCi', 'cL0nbtnGzn') or die("could not connect");
+//$db = mysqli_connect('remotemysql.com', 'cL0nbtnGzn', 'Wxj7CaYFCi', 'cL0nbtnGzn') or die("could not connect");
 
 //login
 

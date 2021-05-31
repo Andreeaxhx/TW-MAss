@@ -42,6 +42,6 @@
       <section id="showcase">
         <p>You are now logged in!</p>
       </section>
-     <footer><p>MASS, Copyright &copy, 2021</p></footer>
+    <footer><p>MASS, Copyright &copy, 2021</p></footer>
   </body>
 </html>

@@ -1,3 +1,4 @@
+<?php include('../PHP/get_info_makeup.php')?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -45,8 +46,11 @@
         <div class='question'>
           <p>What type of makeup would you prefer?</p>
 
-          <button class="button">day</button>
-          <button class="button">night</button>
+          <input name="typeMakeup" type="button" class="button" value="day">
+          <input name="typeMakeup" type="button" class="button" value="night">
+
+          <!-- <button class="button">day</button>
+          <button class="button">night</button> -->
 
         </div>
       </div>
@@ -55,8 +59,11 @@
         <div class='question'>
           <p>Should the makeup be waterproof?</p>
 
-          <button class="button">yes</button>
-          <button class="button">no</button>
+          <input name="waterproofMakeup" type="button" class="button" value="yes">
+          <input name="waterproofMakeup" type="button" class="button" value="no">
+
+          <!-- <button class="button">yes</button>
+          <button class="button">no</button> -->
 
         </div>
       </div>
@@ -64,18 +71,18 @@
       <div class='another_container'>
         <div class='question'>
           <p>Based on color of your eyes, these are the eyeshadow that match!</p>
-          <input type="color" list="eyeshadowColors">
+          <input type="color" list="eyeshadowColors" class="colorEyes1">
             <datalist id="eyeshadowColors">
-              <option>#4B0082</option>
-              <option>#6495ED</option>
-              <option>#708090</option>
-              <option>#800080</option>
-              <option>#9370DB</option>
+              <option value="#4B0082">
+              <option value="#6495ED">
+              <option value="#708090">
+              <option value="#800080">
+              <option value="#9370DB">
             </datalist>
 
-          <input type="color" list="eyeshadowColors">
-          <input type="color" list="eyeshadowColors"> <br><br>
-          <input type="radio" style="vertical-align: middle" id="lipstick">
+          <input type="color" list="eyeshadowColors" class="colorEyes2">
+          <input type="color" list="eyeshadowColors" class="colorEyes3"> <br><br>
+          <input type="radio" style="vertical-align: middle" id="lipstick" value="noEyeshadow">
           <label for="lipstick" style="vertical-align: middle">I prefer no eyeshadow</label>
 
         </div>
@@ -85,13 +92,19 @@
         <div class='question'>
           <p>Would you like false eyelashes?</p>
 
-          <button class="button">yes</button>
-          <button class="button">no</button>
+          <input name="falseEyelashes" type="button" class="button" value="yes">
+          <input name="falseEyelashes" type="button" class="button" value="no">
+
+          <!-- <button class="button">yes</button>
+          <button class="button">no</button> -->
 
           <p>If yes, should they be more natural or dramatic?</p>
 
-          <button class="button">natural</button>
-          <button class="button">dramatic</button>
+          <input name="typeEyelashes" type="button" class="button" value="natural">
+          <input name="typeEyelashes" type="button" class="button" value="dramatic">
+
+          <!-- <button class="button">natural</button>
+          <button class="button">dramatic</button> -->
 
 
         </div>
@@ -101,18 +114,18 @@
       <div class='another_container'>
         <div class='question'>
           <p>Choose a shade of lipstick:</p>
-          <input type="color" list="lipstickColors">
+          <input type="color" list="lipstickColors" class="colorLips1">
             <datalist id="lipstickColors">
-              <option>#BA55D3</option>
-              <option>#C71585</option>
-              <option>#F08080</option>
-              <option>#FF0000</option>
-              <option>#FF6347</option>
+              <option value="#BA55D3">
+              <option value="#C71585">
+              <option value="#F08080">
+              <option value="#FF0000">
+              <option value="#FF6347">
             </datalist>
 
-          <input type="color" list="lipstickColors">
-          <input type="color" list="lipstickColors"><br> <br>
-          <input type="radio" style="vertical-align: middle" id="lipstick">
+          <input type="color" list="lipstickColors" class="colorLips2">
+          <input type="color" list="lipstickColors" class="colorLips3"><br> <br>
+          <input type="radio" style="vertical-align: middle" id="lipstick" class="colorNatural">
           <label for="lipstick" style="vertical-align: middle">I prefer my natural shade</label>
 
 
@@ -125,13 +138,13 @@
           <label class= "question" for="quest">How long would you like your makeup to last?</label>
 
           <div class="hours">
-            <input type="radio" style="vertical-align: middle; margin: 0px;" name ="quest" id="quest">
+            <input type="radio" style="vertical-align: middle; margin: 0px;" name ="quest" id="quest" class="time" value="2-4">
             <label for="quest">2 - 4 hrs</label><br>
 
-            <input type="radio" style="vertical-align: middle; margin: 0px;"  name ="quest" id="quest">
+            <input type="radio" style="vertical-align: middle; margin: 0px;"  name ="quest" id="quest" class="time" value="4-8">
             <label for="quest">4 - 8 hrs</label><br>
 
-            <input type="radio" style="vertical-align: middle; margin: 0px;" name ="quest" id="quest">
+            <input type="radio" style="vertical-align: middle; margin: 0px;" name ="quest" id="quest" class="time" value="8-16">
             <label for="quest">8 - 16 hrs</label>
           </div>
 
