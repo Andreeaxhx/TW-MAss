@@ -1,4 +1,4 @@
-<?php include('../PHP/register_php.php')?>
+<?php include('../PHP/registerController.php')?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

@@ -1,4 +1,4 @@
-<?php include('../PHP/login_php.php')?>
+<?php include('../PHP/loginController.php')?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
