@@ -40,6 +40,18 @@
     </header>
 
     <section>
+
+      <br><br>
+      <?php
+          include '../bd/bd.php';
+          $query = $db->query("select file_name from images order by uploaded_on desc");
+
+          if($query->num_rows > 0){
+            while($row = $query->fetch_assoc()){
+              $imageURL = '../PHP/uploads/'. $row["file_name"];
+      ?>
+        <img height="320px" width="auto" src="<?=$imageURL;?>"/>
+      <?php  }}?>
     
       <div class="row">
         <div class="column">
@@ -122,14 +134,7 @@
         </div>
       </div>
 
-      
-</section>
-
-    
-    <footer>
-    <p>MASS, Copyright &copy, 2021</p>
-  </footer>
+    </section>
+    <footer><p>MASS, Copyright &copy, 2021</p></footer>
   </body>
-
-
 </html>

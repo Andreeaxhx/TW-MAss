@@ -42,6 +42,21 @@
     <section id="showcase">
       <div class="container">
 
+      <br>
+        <h4>Our new beauty products: </h4>
+        <br>
+
+        <?php
+          include '../bd/bd.php';
+          $query = $db->query("select file_name from images order by uploaded_on desc");
+
+          if($query->num_rows > 0){
+            while($row = $query->fetch_assoc()){
+              $imageURL = '../PHP/uploads/'. $row["file_name"];
+        ?>
+        <img height="320px" width="auto" src="<?=$imageURL;?>"/>
+        <?php  }}?>
+        
         <h1>News</h1>
         <p>We are constantly updating our content, in order for you to keep up with the latest trends in the beauty industry.</p>
 
