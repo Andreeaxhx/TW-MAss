@@ -1,3 +1,4 @@
+<?php include('../PHP/get_info_skincare.php')?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -21,25 +22,13 @@
 
       <!--navigation bar-->
 
-      <div class="navbar">
-        <a href="home.php">HOME</a>
-        <a href="register.php">REGISTER</a>
-        <a href="admin.php">ADMIN</a>
-        <a href="aboutus.php">ABOUT US</a>
-        <div class="dropdown">
-          <button class="dropbtn">ADVICE<i class="fa fa-caret-down"></i></button>
-          <div class="dropdown-content">
-            <a href="makeup.php">MAKE-UP</a>
-            <a href="skincare.php">SKINCARE</a>
-          </div>
-        </div> 
-        <a href="tumay.php">TELL US MORE ABOUT YOU</a>
-        <a href="products.php">PRODUCTS</a>
-      </div>
+      <?php include('./navbars/navbarLogedIn.php'); ?>
     </header>
     <section id="showcase">
 
-      <form class="skinCare" id="skinCareReg" action="">
+    <?php include('../alte_chestii/errors.php')?>
+
+      <form class="skinCare" id="skinCareReg" action="skincare.php" method="POST">
         
         <div class="another_container">
           <div class="question">
@@ -49,16 +38,16 @@
           <br>
 
           <div class="answers"> 
-            <input class="qInput" type="radio" name="question1" id="answer11">
+            <input class="qInput" type="radio" name="q1" id="answer11" value="1">
             <label class = "qLabel" for="answer11"> Medium size all over</label>
             <br>
-            <input class="qInput" type="radio" name="question1" id="answer12">
+            <input class="qInput" type="radio" name="q1" id="answer12"  value="2">
             <label class = "qLabel" for="answer12">Large and visible all over</label>
             <br>
-            <input class="qInput" type="radio" name="question1" id="answer13">
+            <input class="qInput" type="radio" name="q1" id="answer13"  value="3">
             <label class = "qLabel" for="answer13">Small and not visible</label>
             <br>
-            <input class="qInput" type="radio" name="question1" id="answer14">
+            <input class="qInput" type="radio" name="q1" id="answer14" value="4">
             <label class = "qLabel" for="answer14"> Large or medium size and only visible in T zone</label>
           </div>
         </div>
@@ -71,16 +60,16 @@
           <br>
 
           <div class="answers"> 
-            <input class="qInput" type="radio" name="question2" id="answer21">
+            <input class="qInput" type="radio" name="q2" id="answer21" value="1">
             <label class = "qLabel" for="answer21"> Acnee </label>
             <br>
-            <input class="qInput" type="radio" name="question2" id="answer22">
+            <input class="qInput" type="radio" name="q2" id="answer22" value="2">
             <label class = "qLabel" for="answer22"> Dryness/Hydration </label>
             <br>
-            <input class="qInput" type="radio" name="question2" id="answer23">
+            <input class="qInput" type="radio" name="q2" id="answer23" value="3">
             <label class = "qLabel" for="answer23"> Oil Control/Pores</label>
             <br>
-            <input class="qInput" type="radio" name="question2" id="answer24">
+            <input class="qInput" type="radio" name="q2" id="answer24" value="4">
             <label class = "qLabel" for="answer24"> None of the above </label>
           </div>
         </div>
@@ -93,17 +82,17 @@
           <br>
 
           <div class="answers"> 
-            <input class="qInput" type="radio" name="question3" id="answer1">
-            <label class = "qLabel" for="answer1"> My skin is radient </label>
+            <input class="qInput" type="radio" name="q3" id="answer31"  value="1">
+            <label class = "qLabel" for="answer31"> My skin is radient </label>
             <br>
-            <input class="qInput" type="radio" name="question3" id="answer2">
-            <label class = "qLabel" for="answer2"> Bright like a diamond </label>
+            <input class="qInput" type="radio" name="q3" id="answer32"  value="2">
+            <label class = "qLabel" for="answer32"> Bright like a diamond </label>
             <br>
-            <input class="qInput" type="radio" name="question3" id="answer3">
-            <label class = "qLabel" for="answer3"> Dull everywhere </label>
+            <input class="qInput" type="radio" name="q3" id="answer33"  value="3">
+            <label class = "qLabel" for="answer33"> Dull everywhere </label>
             <br>
-            <input class="qInput" type="radio" name="question3" id="answer4">
-            <label class = "qLabel" for="answer4"> Only in the T zone</label>
+            <input class="qInput" type="radio" name="q3" id="answer34"  value="4" >
+            <label class = "qLabel" for="answer34"> Only in the T zone</label>
           </div>
         </div>
 
@@ -115,17 +104,17 @@
           <br>
 
           <div class="answers"> 
-            <input class="qInput" type="radio" name="question4" id="answer1">
-            <label class = "qLabel" for="answer1">  Only in some places dry in others </label>
+            <input class="qInput" type="radio" name="q4" id="answer41"  value="1">
+            <label class = "qLabel" for="answer41">  Only in some places dry in others </label>
             <br>
-            <input class="qInput" type="radio" name="question4" id="answer2">
-            <label class = "qLabel" for="answer2"> Rough and scaly </label>
+            <input class="qInput" type="radio" name="q4" id="answer42"  value="2">
+            <label class = "qLabel" for="answer42"> Rough and scaly </label>
             <br>
-            <input class="qInput" type="radio" name="question4" id="answer3">
-            <label class = "qLabel" for="answer3"> Healty and smooth </label>
+            <input class="qInput" type="radio" name="q4" id="answer43"  value="3">
+            <label class = "qLabel" for="answer43"> Healty and smooth </label>
             <br>
-            <input class="qInput" type="radio" name="question4" id="answer4">
-            <label class = "qLabel" for="answer4"> Slick and greasy </label>
+            <input class="qInput" type="radio" name="q4" id="answer44"  value="4">
+            <label class = "qLabel" for="answer44"> Slick and greasy </label>
           </div>
         </div>
 
@@ -137,17 +126,17 @@
           <br>
 
           <div class="answers"> 
-            <input class="qInput" type="radio" name="question5" id="answer1">
-            <label class = "qLabel" for="answer1"> Blotting paper or powder all over </label>
+            <input class="qInput" type="radio" name="q5" id="answer51"  value="1">
+            <label class = "qLabel" for="answer51"> Blotting paper or powder all over </label>
             <br>
-            <input class="qInput" type="radio" name="question5" id="answer2">
-            <label class = "qLabel" for="answer2"> Blotting paper or powder only on your forehead, nose, and/or chin </label>
+            <input class="qInput" type="radio" name="q5" id="answer52"  value="2">
+            <label class = "qLabel" for="answer52"> Blotting paper or powder only on your forehead, nose, and/or chin </label>
             <br>
-            <input class="qInput" type="radio" name="question5" id="answer3">
-            <label class = "qLabel" for="answer3"> Moisture </label>
+            <input class="qInput" type="radio" name="q5" id="answer53"  value="3">
+            <label class = "qLabel" for="answer53"> Moisture </label>
             <br>
-            <input class="qInput" type="radio" name="question5" id="answer4">
-            <label class = "qLabel" for="answer4"> None of the above </label>
+            <input class="qInput" type="radio" name="q5" id="answer54"  value="4">
+            <label class = "qLabel" for="answer54"> None of the above </label>
           </div>
         </div>
 
@@ -159,17 +148,17 @@
           <br>
 
           <div class="answers"> 
-            <input class="qInput" type="radio" name="question6" id="answer1">
-            <label class = "qLabel" for="answer1"> Clean until the oil soon returns </label>
+            <input class="qInput" type="radio" name="q6" id="answer61"  value="1">
+            <label class = "qLabel" for="answer61"> Clean until the oil soon returns </label>
             <br>
-            <input class="qInput" type="radio" name="question6" id="answer2">
-            <label class = "qLabel" for="answer2">Itchy and a bit dry</label>
+            <input class="qInput" type="radio" name="q6" id="answer62"  value="2">
+            <label class = "qLabel" for="answer62">Itchy and a bit dry</label>
             <br>
-            <input class="qInput" type="radio" name="question6" id="answer3">
-            <label class = "qLabel" for="answer3">Clean, healthy and even</label>
+            <input class="qInput" type="radio" name="q6" id="answer63"  value="3">
+            <label class = "qLabel" for="answer63">Clean, healthy and even</label>
             <br>
-            <input class="qInput" type="radio" name="question6" id="answer4">
-            <label class = "qLabel" for="answer4"> Clean in the T zone but dry on the cheeks</label>
+            <input class="qInput" type="radio" name="q6" id="answer64"  value="4">
+            <label class = "qLabel" for="answer64"> Clean in the T zone but dry on the cheeks</label>
           </div>
         </div>
 
@@ -181,19 +170,21 @@
           <br>
 
           <div class="answers"> 
-            <input class="qInput" type="radio" name="question7" id="answer1">
-            <label class = "qLabel" for="answer1"> I have more flakiness and tightness that I do pimples and blackheads? </label>
+            <input class="qInput" type="radio" name="q7" id="answer71"  value="1">
+            <label class = "qLabel" for="answer71"> I have more flakiness and tightness that I do pimples and blackheads? </label>
             <br>
-            <input class="qInput" type="radio" name="question7" id="answer2">
-            <label class = "qLabel" for="answer2">They love me</label>
+            <input class="qInput" type="radio" name="q7" id="answer72"  value="2">
+            <label class = "qLabel" for="answer72">They love me</label>
             <br>
-            <input class="qInput" type="radio" name="question7" id="answer3">
-            <label class = "qLabel" for="answer3">Only on my T zone my cheeks are clear as day</label>
+            <input class="qInput" type="radio" name="q7" id="answer73"  value="3">
+            <label class = "qLabel" for="answer73">Only on my T zone my cheeks are clear as day</label>
             <br>
-            <input class="qInput" type="radio" name="question7" id="answer4">
-            <label class = "qLabel" for="answer4"> Pimples and blackheads? Never heard of them</label>
+            <input class="qInput" type="radio" name="q7" id="answer74"  value="4">
+            <label class = "qLabel" for="answer74"> Pimples and blackheads? Never heard of them</label>
           </div>
         </div>
+
+        <input type="submit" value="Submit" name='submitBtn'>
 
       </form>
 

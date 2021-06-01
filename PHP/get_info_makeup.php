@@ -5,81 +5,148 @@
 
     $errors = array();
 
-    $age = "";
-    $gender = "";
-    $hairColor = "";
-    $hairType = "";
-    $skinColor = "";
-    $faceShape = "";
-    $eyesColor = "";
+    $typeMakeup = "";
+    $waterproofMakeup = "";
+    $colorEyes1 = "";
+    $colorEyes2 = "";
+    $colorEyes3 = "";
+    $noEyeshadow = "";
+    $falseEyelashes = "";
+    $typeEyelashes = "";
+    $colorLips1 = "";
+    $colorLips2 = "";
+    $colorLips3 = "";
+    $lipstick = "";
+    $time = "";
 
-    if(isset($_POST['submitBtn'])){
+    if(isset($_SESSION['username'])){
+        if(isset($_POST['submitBtn'])){
 
-        //echo "<script type='text/javascript'>alert('Hei');</script>";
-        if(isset($_POST['age'])){
-            $age = mysqli_real_escape_string($db, $_POST['age']);
-        }
-        if(isset($_POST['gender'])){
-            $gender = mysqli_real_escape_string($db, $_POST['gender']);
-        }
-        if(isset($_POST['hairColor'])){
-            $hairColor = mysqli_real_escape_string($db, $_POST['hairColor']);
-        }
-        if(isset($_POST['hairType'])){
-            $hairType = mysqli_real_escape_string($db, $_POST['hairType']);
-        }
-        if(isset($_POST['skinColor'])){
-            $skinColor = mysqli_real_escape_string($db, $_POST['skinColor']);
-        }
-        if(isset($_POST['face'])){
-            $faceShape = mysqli_real_escape_string($db, $_POST['face']);
-        }
-        if(isset($_POST['eyesColor'])){
-            $eyesColor = mysqli_real_escape_string($db, $_POST['eyesColor']);
-        }
+            //"<script type='text/javascript'>alert('Hei');</script>";
+            if(isset($_POST['typeMakeup'])){
+                $typeMakeup = mysqli_real_escape_string($db, $_POST['typeMakeup']);
+            }
+            if(isset($_POST['waterproofMakeup'])){
+                $waterproofMakeup = mysqli_real_escape_string($db, $_POST['waterproofMakeup']);
+            }
+            if(isset($_POST['colorEyes1'])){
+                $colorEyes1 = mysqli_real_escape_string($db, $_POST['colorEyes1']);
+            }
+            if(isset($_POST['colorEyes2'])){
+                $colorEyes2 = mysqli_real_escape_string($db, $_POST['colorEyes2']);
+            }
+            if(isset($_POST['colorEyes3'])){
+                $colorEyes3 = mysqli_real_escape_string($db, $_POST['colorEyes3']);
+            }
+            if(isset($_POST['noEyeshadow'])){
+                $noEyeshadow = mysqli_real_escape_string($db, $_POST['noEyeshadow']);
+            }
+            if(isset($_POST['falseEyelashes'])){
+                $falseEyelashes = mysqli_real_escape_string($db, $_POST['falseEyelashes']);
+            }
+            if(isset($_POST['typeEyelashes'])){
+                $typeEyelashes = mysqli_real_escape_string($db, $_POST['typeEyelashes']);
+            }
+            if(isset($_POST['colorLips1'])){
+                $colorLips1 = mysqli_real_escape_string($db, $_POST['colorLips1']);
+            }
+            if(isset($_POST['colorLips2'])){
+                $colorLips2 = mysqli_real_escape_string($db, $_POST['colorLips2']);
+            }
+            if(isset($_POST['colorLips3'])){
+                $colorLips3 = mysqli_real_escape_string($db, $_POST['colorLips3']);
+            }
+            if(isset($_POST['lipstick'])){
+                $lipstick = mysqli_real_escape_string($db, $_POST['lipstick']);
+            }
+            if(isset($_POST['time'])){
+                $time = mysqli_real_escape_string($db, $_POST['time']);
+            }
 
 
-        if(empty($age)){
-            array_push($errors, "Please insert your age!");
+            if(empty($typeMakeup)){
+                array_push($errors, "Please insert the type of make-up!");
+            }
+
+            if(empty($waterproofMakeup)){
+                array_push($errors, "Please input your choice of waterproof make-up!");
+            }
+
+            if($colorEyes1 == '#000000' and $colorEyes2  == '#000000' and $colorEyes3 == '#000000'){
+                if(empty($noEyeshadow)){
+                    array_push($errors, "Please insert your choice of eye shadow!");
+                }
+            }
+
+            if(empty($falseEyelashes)){
+                array_push($errors, "Please insert your choice of false eyelashes!");
+            }
+
+            if(empty($colorLips1) and empty($colorLips2) and empty($colorLips3)){
+                if(empty($lipstick)){
+                    array_push($errors, "Please insert your choice of lipstick!");
+                }
+            }
+
+            if(empty($time)){
+                array_push($errors, "Please choose a time!");
+            }
+
+            if($colorEyes1 == '-' or $colorEyes2  == '-' and $colorEyes3 == '-'){
+                    
+            }
+
+            if(count($errors) == 0){
+
+                if($noEyeshadow == 'noEyeshadow'){
+                    $colorEyes1 = '-';
+                    $colorEyes2  = '-';
+                    $colorEyes3 == '-';
+                }
+
+                if($lipstick == 'noLipstick'){
+                    $colorLips1 = '-';
+                    $colorLips2  = '-';
+                    $colorLips3 = '-';
+                }
+
+                if($colorLips1 == '#000000'){
+                    $colorLips1 = '-';
+                }
+                if($colorLips2 == '#000000'){
+                    $colorLips2 = '-';
+                }
+                if($colorLips3 == '#000000'){
+                    $colorLips3 = '-';
+                }
+
+                if($colorEyes1 == '#000000'){
+                    $colorEyes1 = '-';
+                }
+                if($colorEyes2 == '#000000'){
+                    $colorEyes2 = '-';
+                }
+                if($colorEyes3 == '#000000'){
+                    $colorEyes3 = '-';
+                }
+
+
+                $query="INSERT INTO makeup(username,typeMakeup,waterproofMakeup,colorEyes1,colorEyes2,colorEyes3,noEyeshadow,falseEyelashes,typeEyelashes,colorLips1,colorLips2,colorLips3,lipstick,timePeriod)
+                    VALUES ('" . $_SESSION['username'] . "',' $typeMakeup ',' $waterproofMakeup ',' $colorEyes1 ',' $colorEyes2 ',' $colorEyes3 ',' $noEyeshadow ',' $falseEyelashes ',' $typeEyelashes ',' $colorLips1 ',' $colorLips2 ',' $colorLips3 ',' $lipstick ',' $time ')";
+                mysqli_query($db, $query);
+
+                //echo $query;
+            
+                //header('location: ../HTML/tumay_register.php');
+                    
+            }
+
+            //session_destroy();
+
         }
-
-        if(empty($gender)){
-            array_push($errors, "Please input your gender!");
-        }
-
-        if(empty($hairColor)){
-            array_push($errors, "Please insert your hair color!");
-        }
-
-        if(empty($hairType)){
-            array_push($errors, "Please insert your hair type!");
-        }
-
-        if(empty($skinColor)){
-            array_push($errors, "Please insert your skin color!");
-        }
-
-        if(empty($faceShape)){
-            array_push($errors, "Please insert your face shape!");
-        }
-
-        if(empty($eyesColor)){
-            array_push($errors, "Please insert your eyes color!");
-        }
-
-        //$username = $_SESSION['username']; 
-
-        if(count($errors) == 0){
-            $query="INSERT INTO traits(age,gender,hairColor,hairType,skinColor,faceShape,eyesColor)
-                VALUES (' $age ',' $gender ',' $hairColor ',' $hairType ',' $skinColor ',' $faceShape ',' $eyesColor ')";
-            mysqli_query($db, $query);
-        
-            header('location: ../HTML/tumay_register.php');
-                
-        }
-
-        session_destroy();
-
+    }
+    else{
+        array_push($errors, "Please login first!");
     }
 
 ?>

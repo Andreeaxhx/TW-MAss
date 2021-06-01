@@ -61,6 +61,6 @@ if(count($errors) == 0){
 
 }
 
-	session_destroy();
+	//session_destroy();
 }
 ?>

@@ -43,7 +43,7 @@ if(isset($_POST['login_user'])){
 			array_push($errors, "wrong username/ password!");
 		}
 	}
-	session_destroy();
+	//session_destroy();
 }
 
 

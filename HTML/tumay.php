@@ -25,21 +25,7 @@
 
       <!--navigation bar-->
 
-      <div class="navbar">
-        <a href="home.php">HOME</a>
-        <a href="register.php">REGISTER</a>
-        <a href="admin.php">ADMIN</a>
-        <a href="aboutus.php">ABOUT US</a>
-        <div class="dropdown">
-          <button class="dropbtn">ADVICE<i class="fa fa-caret-down"></i></button>
-          <div class="dropdown-content">
-            <a href="makeup.php">MAKE-UP</a>
-            <a href="skincare.php">SKINCARE</a>
-          </div>
-        </div> 
-        <a href="tumay.php">TELL US MORE ABOUT YOU</a>
-        <a href="products.php">PRODUCTS</a>
-      </div>
+      <?php include('./navbars/navbarLogedIn.php'); ?>
     </header>
 
     
@@ -51,12 +37,8 @@
       </div>
       -->
 
-      <?php
 
-          // echo '<pre>';
-          // print_r($_POST);
-          // echo '<pre>';
-      ?>
+      <?php include('../alte_chestii/errors.php')?> 
 
       <form class="firstForm" name="form1" action="tumay.php" id="registrationForm" method="POST"> 
         <div class="age">
@@ -758,7 +740,7 @@
         <input type="submit" value="Submit" name='submitBtn' >
         <br>
         <br>
-        <?php include('../alte_chestii/errors.php')?>
+        
 
       </form>
 
