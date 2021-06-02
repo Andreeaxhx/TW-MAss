@@ -30,9 +30,17 @@
 
         <form action = "../PHP/upload.php" method = "post" enctype = "multipart/form-data">
 
-          Select image file to upload:
+        Select image file to upload:
           <input type="file" name="file">
+
+
+          <p>Choose attributes:
+            <br>
+            <input type="text" name="attributes" required>
+          </p>
+          <br>
           <input type="submit" name="submit" value="upload">
+
 
         </form>
 
