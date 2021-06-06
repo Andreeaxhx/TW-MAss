@@ -1,5 +1,9 @@
 <?php
-include('../PHP/start_session.php')
+include('../PHP/start_session.php');
+include('../bd/bd.php');
+include('../PHP/productsController.php');
+include('../PHP/productLikesController.php');
+include('../PHP/mostPopularController.php');
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +30,7 @@ include('../PHP/start_session.php')
       <!--navigation bar-->
 
       <?php include('./navbars/navbarLogedIn.php'); ?>
+
     </header>
 
 
@@ -36,8 +41,61 @@ include('../PHP/start_session.php')
         <h4>Our new beauty products: </h4>
         <br>
 
-        <?php
-          include '../bd/bd.php';
+
+ <?php
+          if(isset($_POST["user_id"])){
+            $userId = $_SESSION["user_id"];}
+
+          $products = retrieveProducts($db);
+          if($products)
+          {
+              ?>
+              <div class="row">
+                  <?php
+                  foreach($products as $p)
+                  {
+                      ?>
+                      <div class="column">
+                          <figure class="products">
+                              <img class="products" style="object-fit: contain; width: 320px; height: 320px;" src="../PHP/uploads/<?php echo $p["fileName"];?>" alt="product">
+                              <figcaption>
+                                  <?php echo $p["productTitle"];?>
+                                  <br>
+                                  <?php echo $p["catName"];?>
+                                  <br/>
+                                  <?php
+                                  $likes = countLikes($db, $p["id"]);
+                                  ?>
+                                  [<b><?php echo $likes;?></b>]
+                                  <?php
+                                  if(hasLike($db,$userId, $p["id"]))
+                                  {
+
+
+                                      ?>
+                                      <a href="<?php echo $_SERVER["PHP_SELF"];?>?unlike&product_id=<?php echo $p["id"];?>">Unlike</a>
+                                      <?php
+                                  }
+                                  else
+                                  {
+                                      ?>
+                                      <a href="<?php echo $_SERVER["PHP_SELF"];?>?like&product_id=<?php echo $p["id"];?>">Like</a>
+                                      <?php
+                                  }
+                                  ?>
+                              </figcaption>
+                          </figure>
+                      </div>
+                    <?php
+                  }
+                  ?>
+              </div>
+              <?php
+          }
+
+          ?>
+
+<!--        <?php
           $query = $db->query("select file_name from images order by uploaded_on desc");
 
           if($query->num_rows > 0){
@@ -47,6 +105,11 @@ include('../PHP/start_session.php')
         <img height="320px" width="auto" src="<?=$imageURL;?>"/>
         <?php  }}?>
         
+        -->
+
+
+
+
         <h1>News</h1>
         <p>We are constantly updating our content, in order for you to keep up with the latest trends in the beauty industry.</p>
 

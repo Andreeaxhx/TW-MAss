@@ -25,17 +25,32 @@
     
     <section id="showcase">
 
-        <?php include('../alte_chestii/errors.php')?>
-        <form action="admin.php" method="POST"><br><br>
-            <p>Admin username:<br>
-            <input type="text" name="username" required></p>
-            <br>
+      <?php
+            if($_SESSION["rank"] == "admin")
+            {
+                ?>
+                    <div style="padding-top: 1%; margin: auto; display: block;width: 75%;">
+                        <p style="text-align: center;"><h3>Admin Panel</h3></p>
+                        <p style="text-align: center; font-size: 16px;">
+                           Sectiuni administrare:
+                     
+                            <ul>
+                            <li><a href="manage_products.php">Products</a></li>
+                            <li><a href="manage_tags.php">Product tags</a></li>
+                            <li><a href="manage_tag_categories.php">Tag categories</a></li>
+                            <li><a href="manage_product_categories.php">Product categories</a></li>
+                            <li><a href="manage_advice.php">Advice</a></li>
+                            </ul>
 
-            <p>Admin password:<br>
-            <input type="password" name="password" required></p>
-
-            <button type="submit" name="login_user">LOGIN</button>
-        </form>
+                        </p>
+                    </div>
+                <?php
+            }
+            else
+            {
+                header("Location: login.php");
+            }
+        ?>
 
       </section>
 

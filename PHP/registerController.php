@@ -52,9 +52,11 @@ if ($user)
 
 if(count($errors) == 0){
 	$password_enc = md5($password); //encryption
-	$query = "INSERT INTO user (username, email, password) VALUES ('$username', '$email', '$password_enc');";
+	$query = "INSERT INTO user (username, email, password,rank,age,gender VALUES ('$username', '$email', '$password_enc','user','','');";
 	mysqli_query($db, $query);
+	$_SESSION['user_id']  = mysqli_insert_id($db);
 	$_SESSION['username'] = $username;
+	$_SESSION['rank'] = 'user';
 	$_SESSION['success'] = "you are now logged in";
 
 	header('location: ../HTML/after_register.php');

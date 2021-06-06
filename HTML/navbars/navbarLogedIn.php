@@ -11,7 +11,11 @@
                 </div>
             </div> 
             <a href="tumay.php">TELL US MORE ABOUT YOU</a>
-            <a href="admin.php">ADMIN</a>
+             <?php if($_SESSION["rank"] == "admin")
+             { ?>
+                    <a href="admin.php">ADMIN</a>
+                <?php } ?>
+
             <a href="../PHP/logout.php">LOGOUT</a>
             <h3>Hello <?php echo $_SESSION['username']?> </h3>
         <?php else : ?>

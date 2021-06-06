@@ -33,8 +33,12 @@ if(isset($_POST['login_user'])){
 		$results = mysqli_query($db, $query);
 
 		if(mysqli_num_rows($results)){
+			$result = mysqli_fetch_assoc($results);
+
+			$_SESSION['user_id'] = $result["id"];
 			$_SESSION['username'] = $username;
 			$_SESSION['success'] = "logged in successfully!";
+			$_SESSION['rank'] = $result["rank"];
 
 			header('location: ../HTML/after_register.php');
 		}

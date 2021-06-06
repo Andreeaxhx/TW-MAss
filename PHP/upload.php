@@ -11,7 +11,7 @@ $filetype = pathinfo($target_file_path, PATHINFO_EXTENSION);
 if(isset($_POST['attributes'])){
 	$attributes = mysqli_real_escape_string($db, $_POST['attributes']);}
 
-
+echo $attributes;
 if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
 
 	//upload process
