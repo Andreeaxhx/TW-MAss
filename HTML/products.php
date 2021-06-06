@@ -34,11 +34,11 @@ include('../PHP/start_session.php')
       <br><br>
       <?php
           include '../bd/bd.php';
-          $query = $db->query("select file_name from images order by uploaded_on desc");
+          $query = $db->query("select fileName from products order by createdAt desc");
 
           if($query->num_rows > 0){
             while($row = $query->fetch_assoc()){
-              $imageURL = '../PHP/uploads/'. $row["file_name"];
+              $imageURL = '../PHP/uploads/'. $row["fileName"];
       ?>
         <img height="320px" width="auto" src="<?=$imageURL;?>"/>
       <?php  }}?>

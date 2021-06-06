@@ -42,55 +42,19 @@ include('../PHP/mostPopularController.php');
         <br>
 
 
- <?php
+        <?php
           if(isset($_POST["user_id"])){
             $userId = $_SESSION["user_id"];}
 
-          $products = retrieveProducts($db);
-          if($products)
-          {
-              ?>
-              <div class="row">
-                  <?php
-                  foreach($products as $p)
+            $products = retrieveProducts($db);
+            if($products)
+            {
+              foreach($products as $p)
                   {
-                      ?>
-                      <div class="column">
-                          <figure class="products">
-                              <img class="products" style="object-fit: contain; width: 320px; height: 320px;" src="../PHP/uploads/<?php echo $p["fileName"];?>" alt="product">
-                              <figcaption>
-                                  <?php echo $p["productTitle"];?>
-                                  <br>
-                                  <?php echo $p["catName"];?>
-                                  <br/>
-                                  <?php
-                                  $likes = countLikes($db, $p["id"]);
-                                  ?>
-                                  [<b><?php echo $likes;?></b>]
-                                  <?php
-                                  if(hasLike($db,$userId, $p["id"]))
-                                  {
-
-
-                                      ?>
-                                      <a href="<?php echo $_SERVER["PHP_SELF"];?>?unlike&product_id=<?php echo $p["id"];?>">Unlike</a>
-                                      <?php
-                                  }
-                                  else
-                                  {
-                                      ?>
-                                      <a href="<?php echo $_SERVER["PHP_SELF"];?>?like&product_id=<?php echo $p["id"];?>">Like</a>
-                                      <?php
-                                  }
-                                  ?>
-                              </figcaption>
-                          </figure>
-                      </div>
+                     $imageURL = '../PHP/uploads/'. $p["fileName"];?>
+                    <img height="320px" width="auto" src="<?=$imageURL;?>"/>
                     <?php
                   }
-                  ?>
-              </div>
-              <?php
           }
 
           ?>
