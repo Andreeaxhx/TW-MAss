@@ -1,5 +1,7 @@
 <?php
-include('../PHP/start_session.php')
+include('../PHP/start_session.php');
+include('../PHP/makePDF.php');
+include '../bd/bd.php';
 ?>
 
 <!DOCTYPE html>
@@ -29,100 +31,40 @@ include('../PHP/start_session.php')
       <?php include('./navbars/navbarLogedIn.php'); ?>
     </header>
 
+    <form action="products.php"  method="POST">
+      <input type="submit" value="Create a 1 PDF" name='submitBtn'>
+    </form>
+
     <section>
 
-      <br><br>
+    <!-- Ajax function -->
+      <script>
+      function loadDoc(str) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("response").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "../HTML/displayProducts.php?id=" + str, true);
+        xmlhttp.send();
+      }
+      loadDoc("18");
+      </script>
+
+      <!-- Create all the cat buttons -->
       <?php
-          include '../bd/bd.php';
-          $query = $db->query("select file_name from images order by uploaded_on desc");
-
-          if($query->num_rows > 0){
-            while($row = $query->fetch_assoc()){
-              $imageURL = '../PHP/uploads/'. $row["file_name"];
-      ?>
-        <img height="320px" width="auto" src="<?=$imageURL;?>"/>
-      <?php  }}?>
-    
-      <div class="row">
-        <div class="column">
-          <figure class="products">
-            <img class="products" src="../pictures/products/fdt_fenty.jpg" alt="fdt">
-            <figcaption> Fenty Foundation  </figcaption>
-          </figure><figure class="products">
-            <img class="products" src="../pictures/products/fdt_ysl.jpg" alt="fdt">
-            <figcaption> YSL Foundation  </figcaption>
-          </figure><figure class="products">
-            <img class="products" src="../pictures/products/fdt_benefit.jpg" alt="fdt">
-            <figcaption> Benefit Foundation  </figcaption>
-          </figure>
-        </div>
-       
-        <div class="column">
-          <figure class="products">
-            <img class="products" src="../pictures/products/powder_dior.jpg" alt="powder">
-            <figcaption> Dior <br> Powder  </figcaption>
-          </figure><figure class="products">
-            <img class="products" src="../pictures/products/powder_toofaced.jpg" alt="powder">
-            <figcaption> Too Faced Powder  </figcaption>
-          </figure><figure class="products">
-            <img class="products" src="../pictures/products/powder_ysl.jpg" alt="powder">
-            <figcaption> YSL Powder  </figcaption>
-          </figure>
-        </div>
-
-        <div class="column">
-          <figure class="products">
-            <img class="products" src="../pictures/products/eyeshadow_anastasia.jpg" alt="eyeshadow">
-            <figcaption> Anastasia Eyeshadow  </figcaption>
-          </figure><figure class="products">
-            <img class="products" src="../pictures/products/eyeshadow_tarte.jpg" alt="eyeshadow">
-            <figcaption> Tarte Eyeshadow  </figcaption>
-          </figure><figure class="products">
-            <img class="products" src="../pictures/products/eyeshadow_zoeva.jpg" alt="eyeshadow">
-            <figcaption> Zoeva Eyeshadow  </figcaption>
-          </figure>
-        </div>
-
-        <div class="column">
-          <figure class="products">
-            <img class="products" src="../pictures/products/lipstick_anastasia.jpg" alt="fdt">
-            <figcaption> Anastasia Lipstick  </figcaption>
-          </figure><figure class="products">
-            <img class="products" src="../pictures/products/lipstick_givenchy.jpg" alt="fdt">
-            <figcaption> Givenchy Lipstick  </figcaption>
-          </figure><figure class="products">
-            <img class="products" src="../pictures/products/lipstick_ysl.jpg" alt="fdt">
-            <figcaption> YSL Lipstick  </figcaption>
-          </figure>
-        </div>
-
-        <div class="column">
-          <figure class="products">
-            <img class="products" src="../pictures/products/blush_dior.jpg" alt="fdt">
-            <figcaption> Dior <br> Blush  </figcaption>
-          </figure><figure class="products">
-            <img class="products" src="../pictures/products/blush_natasha.jpg" alt="fdt">
-            <figcaption> Natasha Blush  </figcaption>
-          </figure><figure class="products">
-            <img class="products" src="../pictures/products/blush_sephora.jpg" alt="fdt">
-            <figcaption> Sephora Blush  </figcaption>
-          </figure>
-        </div>
-
-        <div class="column">
-          <figure class="products">
-            <img class="products" src="../pictures/products/concealer_clinique.jpg" alt="fdt">
-            <figcaption> Clinique Concealer  </figcaption>
-          </figure><figure class="products">
-            <img class="products" src="../pictures/products/concealer_dior.jpg" alt="fdt">
-            <figcaption> Dior Concealer  </figcaption>
-          </figure><figure class="products">
-            <img class="products" src="../pictures/products/concealer_zoeva.jpg" alt="fdt">
-            <figcaption> Zoeva Concealer </figcaption>
-          </figure>
-        </div>
-        </div>
-      </div>
+        $query = $db->query("SELECT catName,id FROM tagCategories");
+        while($row = $query->fetch_assoc()){
+          $catName = $row["catName"];
+          $catId = $row["id"];
+        ?>
+          <button type="button" value=<?=$catId?> onclick="loadDoc(value)"><?=$catName?></button>
+        <?php
+        }
+        ?>
+      <br><br>
+      <div id="response"></div>
 
     </section>
     <footer><p>MASS, Copyright &copy, 2021</p></footer>

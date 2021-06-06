@@ -1,0 +1,20 @@
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figcaption.caption {
+  border: 1px dotted blue;
+  /* text-align: center; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1.title {
+  background-color: #fa91c5;
+  background-size: 100% 1px;
+  font-weight: bold;
+  font-size: 40px;
+  font-style: initial;
+  text-align: center;
+}
