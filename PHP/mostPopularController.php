@@ -6,6 +6,7 @@ function countLikes($connection , int $productId)
     return $number;
 }
 
+
 function returnProductInfo($connection, int $productId)
 {
     $get   = mysqli_query($connection, "
@@ -20,22 +21,32 @@ function returnProductInfo($connection, int $productId)
     if(mysqli_num_rows($get) == 1)
     {
         $data = mysqli_fetch_assoc($get);
+
         return array
         (
             "result" => true,
             "data" => $data
         );
+
+        return $data;
+
     }
     else
     {
         return array
         (
             "result" => false,
+
             "error" => "no product found for the given id"
+
+            "error" => mysqli_error($connection)
+
         );
     }
 
 }
+
+
 
 
 function generateRanking($connection)
@@ -52,6 +63,7 @@ function generateRanking($connection)
         {
             $info = returnProductInfo($connection,$id);
             $likes = countLikes($connection,$id);
+
             if($info["result"]) {
                 $popular[] = array
                 (
@@ -69,6 +81,20 @@ function generateRanking($connection)
         }
         
         return array_filter($popular);
+
+
+            $popular[] = array
+            (
+                "id" => $info["id"],
+                "productTitle" => $info["productTitle"],
+                "catName" => $info["catName"],
+                "fileName" => $info["fileName"],
+                "likes" => $likes
+            );
+        }
+
+        return $popular;
+
     }
     else
     {
