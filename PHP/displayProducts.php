@@ -1,9 +1,11 @@
 <link rel="stylesheet" href="../CSS/productsController.css">
 <?php
-
     require '../bd/bd.php';
-
+    include('../PHP/productLikesController.php');
+    include('../PHP/mostPopularController.php');
+    
         $catID =(int) $_REQUEST['id'];
+        $userId = (int) $_REQUEST['user_id'];
         $query1 = $db->query("SELECT catName FROM productCategories WHERE id = '$catID'");
         $row = $query1->fetch_assoc();
         $catName = $row["catName"];
@@ -12,6 +14,7 @@
             $col = 0;
             
             echo "<h1 class='title'>". $catName ."<h1>";
+            
             ?>
             <table id="t01">
                 <tr>
@@ -21,6 +24,7 @@
                 $imageURL = '../PHP/uploads/'. $row["fileName"];
                 $productTitle = $row["productTitle"];
                 $productPrice = $row["productPrice"];
+                $productId = $row["id"];
                 if($col % 4 == 0){
                     ?>
                     </tr>
@@ -37,6 +41,26 @@
                             <?php echo "<p>" . $productTitle . "<p>"?>
 
                             <?php echo "<p>" . $productPrice . "<p>"?>
+                            <?php
+                                $likes = countLikes($db, $productId);
+                                ?>
+                                [<b><?php echo $likes;?></b>]
+                                <?php
+                                if(hasLike($db,$userId, $productId))
+                                {
+
+
+                                    ?>
+                                    <a href="products.php?unlike&product_id=<?php echo $productId;?>">Unlike</a>
+                                    <?php
+                                }
+                                else
+                                {
+                                    ?>
+                                    <a href="products.php?like&product_id=<?php echo $productId;?>">Like</a>
+                                    <?php
+                                }
+                                ?>
                         </figcaption>
                     </figure>
                 </td>

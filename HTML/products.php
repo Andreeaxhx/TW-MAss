@@ -30,24 +30,201 @@ include('../PHP/makePDF.php');
       <!--navigation bar-->
 
       <?php include('./navbars/navbarLogedIn.php'); ?>
+      <?php include('../PHP/productLikesController.php');?>
+      <?php include('../PHP/mostPopularController.php');?>
+      <?php include('../PHP/recommendMeController.php');?>
+      
+
+        <?php
+        /**
+         * Like and unLike functionality
+         */
+        $userId = $_SESSION["user_id"];
+
+        if(isset($_GET["like"]) && isset($_GET["product_id"]))
+        {
+            $productId = rawurldecode($_GET["product_id"]);
+            $like = likeProduct($db, $userId, $productId);
+             if($like["result"])
+             {
+                 header("Location:". $_SERVER["PHP_SELF"]);
+             }
+             else
+             {
+                 echo $like["error"];
+             }
+        }
+
+        if(isset($_GET["unlike"]) && isset($_GET["product_id"]))
+        {
+            $productId = rawurldecode($_GET["product_id"]);
+            $unlike = unLikeProduct($db, $userId, $productId);
+            if($unlike["result"])
+            {
+                header("Location:". $_SERVER["PHP_SELF"]);
+            }
+            else
+            {
+                echo $unlike["error"];
+            }
+        }
+        ?>
     </header>
 
-    <!-- <form action="products.php"  method="POST">
-      <input type="submit" value="Create a 1 PDF" name='submitBtn'>
-    </form> -->
-
     <section>
+        <br/>
+        <h2 style="text-align: center;">Most Popular</h2>
+        <?php
+        $popular = generateRanking($db);
+        if(count($popular))
+        {
+           echo '<div class="row">';
 
-    <!-- Ajax function -->
+           foreach($popular as $pp)
+           {
+               ?>
+
+               <div class="column">
+                   <figure class="products">
+                       <img class="products" style="object-fit: contain; width: 320px; height: 320px;" src="../PHP/uploads/<?php echo $pp["fileName"];?>" alt="fdt">
+                       <figcaption>
+                           <?php echo $pp["productTitle"];?>
+                           <br>
+                           <?php echo $pp["catName"];?>
+                           <br/>
+                           <?php
+                           $likes = countLikes($db, $pp["id"])
+                               ?>
+                           [<b><?php echo $likes;?></b>]
+                           <?php
+                           if(hasLike($db,$userId, $pp["id"]))
+                           {
+                               ?>
+                              <a href="<?php echo $_SERVER["PHP_SELF"];?>?unlike&product_id=<?php echo $pp["id"];?>">Unlike</a>
+                               <?php
+                           }
+                           else
+                           {
+                               ?>
+                               <a href="<?php echo $_SERVER["PHP_SELF"];?>?like&product_id=<?php echo $pp["id"];?>">Like</a>
+                               <?php
+                           }
+                           ?>
+                       </figcaption>
+                   </figure>
+               </div>
+
+            <?php
+           }
+
+           echo "</div>";
+        }
+        else
+        {
+            echo "Nothing to show right now!";
+        }
+        ?>
+        <br/>
+        <h2 style="text-align: center;">Recommendations</h2>
+        <?php
+
+        $data = recommendMe($db,$_SESSION["user_id"]);
+  
+        if($data["result"])
+        {
+            /**
+             * Loop through found products
+             */
+            if($data["products"])
+            {
+                echo "<div class='row'>";
+                foreach($data["products"] as $p)
+                {
+                    ?>
+                    <div class="column">
+                        <figure class="products">
+                            <img class="products" style="object-fit: contain; width: 320px; height: 320px;" src="../PHP/uploads/<?php echo $p["fileName"];?>" alt="fdt">
+                            <figcaption>
+                                <?php echo $p["productTitle"];?>
+                                <br>
+                                <?php echo $p["catName"];?>
+                                <br/>
+                                <?php
+                                $likes = countLikes($db, $p["id"]);
+                                ?>
+                                [<b><?php echo $likes;?></b>]
+                                <?php
+                                if(hasLike($db,$userId, $p["id"]))
+                                {
+
+
+                                    ?>
+                                    <a href="<?php echo $_SERVER["PHP_SELF"];?>?unlike&product_id=<?php echo $p["id"];?>">Unlike</a>
+                                    <?php
+                                }
+                                else
+                                {
+                                    ?>
+                                    <a href="<?php echo $_SERVER["PHP_SELF"];?>?like&product_id=<?php echo $p["id"];?>">Like</a>
+                                    <?php
+                                }
+                                ?>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <?php
+                }
+                echo "</div>";
+            }
+            else
+            {
+                echo "No products found!<br/>";
+            }
+
+            ?>
+
+            <h2 style="text-align: center;">Advices</h2>
+            <?php
+            /**
+             * Loop through found advices
+             */
+            if($data["advices"])
+            {
+                foreach($data["advices"][0] as $a)
+                {
+                    echo "<div class='row'>";
+                    ?>
+                    <div class="column">
+                        <hr/>
+                        <?php echo $a;?>
+                        <hr/>
+                    </div>
+                    <?php
+                    echo "</div>";
+                }
+            }
+            else
+            {
+                echo "No advices found! <br/>";
+            }
+        }
+        else
+        {
+            echo "You either forgot to set your prefferences or there is not data in the database!";
+        }
+
+        ?>
+
+     <!-- Ajax function -->
       <script>
-      function displayCat(str) {
+      function displayCat(str, user_id) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("response").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET", "../PHP/displayProducts.php?id=" + str, true);
+        xmlhttp.open("GET", "../PHP/displayProducts.php?id=" + str + "&user_id=" + user_id, true);
         xmlhttp.send();
       }
       displayCat("18");
@@ -72,7 +249,7 @@ include('../PHP/makePDF.php');
           $catName = $row["catName"];
           $catId = $row["id"];
         ?>
-          <button type="button" value=<?=$catId?> onclick="displayCat(value)"><?=$catName?></button>
+          <button type="button"  onclick="displayCat(<?php echo $catId; ?>,<?php echo $userId; ?>)"><?=$catName?></button>
         <?php
         }
         ?>
