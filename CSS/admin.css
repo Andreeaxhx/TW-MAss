@@ -7,7 +7,7 @@ ul li{
   font-size: 15px;
 }
 #data-table {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
   border-collapse: collapse;
   font-style: normal !important;
   width: 100%;
@@ -20,7 +20,7 @@ ul li{
   padding: 8px;
 }
 
-#data-table tr:nth-child(even){background-color: #f2f2f2;}
+#data-table tr:nth-child(even){background-color: #ffccd5;}
 
 #data-table tr:hover {background-color: #ddd;}
 
@@ -28,7 +28,7 @@ ul li{
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #948589;
   color: white;
 }
 
@@ -46,7 +46,7 @@ input[type=text],input[type=file],input[type=number] ,select {
 button[type=submit]
 {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #fa91c5;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;

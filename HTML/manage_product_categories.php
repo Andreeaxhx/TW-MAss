@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>MASS | Welcome</title>
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/admin.css">
+    <link href="../CSS/style.css" rel="stylesheet" type="text/css">
+    <link href="../CSS/admin.css" rel="stylesheet" type="text/css">
   </head>
 
 
@@ -57,6 +57,7 @@
        </header>
     
     <section id="showcase">
+        <div style="width: 75%; display: block; margin:auto;">
 
        <?php
             if($_SESSION["rank"] == "admin")
@@ -99,7 +100,7 @@
                     <table id="data-table">
                         <thead>
                         <tr>
-                            <th>i</th>
+                            <th>Nr. Crt.</th>
                             <th>Category</th>
                             <th>Parent</th>
                             <th>Creation Date</th>

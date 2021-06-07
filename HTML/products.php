@@ -54,7 +54,7 @@ include '../bd/bd.php';
 
       <!-- Create all the cat buttons -->
       <?php
-        $query = $db->query("SELECT catName,id FROM tagCategories");
+        $query = $db->query("SELECT catName,id FROM productCategories");
         while($row = $query->fetch_assoc()){
           $catName = $row["catName"];
           $catId = $row["id"];

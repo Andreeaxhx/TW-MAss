@@ -4,7 +4,7 @@
     require '../bd/bd.php';
 
         $catID =(int) $_REQUEST['id'];
-        $query1 = $db->query("SELECT catName FROM tagCategories WHERE id = '$catID'");
+        $query1 = $db->query("SELECT catName FROM productCategories WHERE id = '$catID'");
         $row = $query1->fetch_assoc();
         $catName = $row["catName"];
         $query2 = $db->query("SELECT * FROM products WHERE catId = '$catID'");
