@@ -17,10 +17,13 @@
                 <?php } ?>
 
             <a href="../PHP/logout.php">LOGOUT</a>
+            <a href="./backend_scholarly.php">DOCUMENTAȚIE</a>
             <h3>Hello <?php echo $_SESSION['username']?> </h3>
+            
         <?php else : ?>
             <a href="login.php">LOGIN</a>
             <a href="register.php">REGISTER</a>
+            <a href="./backend_scholarly.php">DOCUMENTAȚIE</a>
         <?php endif;?>
 
     </div>
