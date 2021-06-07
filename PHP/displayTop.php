@@ -44,7 +44,7 @@
                             <figure>
                                 <img style="display:block;" width="400px" height="400px" src="<?=$imageURL;?>"/>
                                 <figcaption class="caption">
-                                    <?php echo "<p>" . $col + 1 .". ". $productTitle . "<p>"?>
+                                    <?php echo "<p>" . (int)$col + 1 .". ". $productTitle . "<p>"?>
                                 </figcaption>
                             </figure>
                         </td>
