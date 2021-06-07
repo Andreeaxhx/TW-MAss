@@ -39,19 +39,31 @@ include '../bd/bd.php';
 
     <!-- Ajax function -->
       <script>
-      function loadDoc(str) {
+      function displayCat(str) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("response").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET", "../HTML/displayProducts.php?id=" + str, true);
+        xmlhttp.open("GET", "../PHP/displayProducts.php?id=" + str, true);
         xmlhttp.send();
       }
-      loadDoc("18");
-      </script>
+      displayCat("18");
 
+      function displayTops(tops) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("response").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "../PHP/displayTop.php?order=" + tops, true);
+        xmlhttp.send();
+      }
+      
+      </script>
+      <br>
       <!-- Create all the cat buttons -->
       <?php
         $query = $db->query("SELECT catName,id FROM productCategories");
@@ -59,10 +71,24 @@ include '../bd/bd.php';
           $catName = $row["catName"];
           $catId = $row["id"];
         ?>
-          <button type="button" value=<?=$catId?> onclick="loadDoc(value)"><?=$catName?></button>
+          <button type="button" value=<?=$catId?> onclick="displayCat(value)"><?=$catName?></button>
         <?php
         }
         ?>
+      <br>
+      <?php
+      
+        $tops = array("Newest", "Product Price");
+        $tops1 = array("createdAt", "productPrice");
+        for($i=0; $i < count($tops); $i++)
+        {
+          ?>
+          <button type="button" value=<?=$tops1[$i]?> onclick="displayTops(value)"><?=$tops[$i]?></button>
+          <?php
+        }
+
+      ?>
+
       <br><br>
       <div id="response"></div>
 
