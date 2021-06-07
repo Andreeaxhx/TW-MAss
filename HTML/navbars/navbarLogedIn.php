@@ -7,7 +7,7 @@
                 <button class="dropbtn">ADVICE<i class="fa fa-caret-down"></i></button>
                 <div class="dropdown-content">
                     <a href="makeup.php">MAKE-UP</a>
-                    <a href="skincare.php">SKINCARE</a>
+                    <!-- <a href="skincare.php">SKINCARE</a> -->
                 </div>
             </div> 
             <a href="tumay.php">TELL US MORE ABOUT YOU</a>

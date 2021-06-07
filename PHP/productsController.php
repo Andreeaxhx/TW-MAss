@@ -283,9 +283,53 @@ function isSelectedTag($connection, int $productId, int $tagId)
 
 function retrieveProducts($connection)
 {
+// toate produsele incarcate in baza de date
+    $get = mysqli_query($connection, "
+        SELECT products.*, productCategories.catName 
+        FROM products 
+        LEFT JOIN productCategories 
+        ON products.catId = productCategories.id 
+        ORDER by createdAt DESC ");
 
+    if(mysqli_num_rows($get))
+    {
+        while($a = mysqli_fetch_assoc($get))
+        {
 
-    $get = mysqli_query($connection, "SELECT products.*, productCategories.catName FROM products LEFT JOIN productCategories ON products.catId = productCategories.id ORDER by createdAt DESC");
+            $data[] = array
+            (
+                "id" => $a["id"],
+                "catId" => $a["catId"],
+                "productTags" => retrieveProductTags($connection, $a["id"]),
+                "productTitle" => $a["productTitle"],
+                "productDescription" => $a["productDescription"],
+                "productPrice" => $a["productPrice"],
+                "fileName" => $a["fileName"],
+                "catName" => $a["catName"],
+                "createdAt" => $a["createdAt"]
+            );
+        }
+
+        return $data;
+    }
+    else
+    {
+       return null;
+    }
+
+}
+
+function retrieveMonthlyProducts($connection)
+{
+//toate produsele incarcate in baza de date in luna curenta
+
+    $get = mysqli_query($connection, "
+        SELECT products.*, productCategories.catName 
+        FROM products 
+        LEFT JOIN productCategories 
+        ON products.catId = productCategories.id 
+        where MONTH(products.createdAt)=MONTH(NOW())
+        ORDER by createdAt DESC ");
 
     if(mysqli_num_rows($get))
     {

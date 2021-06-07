@@ -46,7 +46,7 @@ include('../PHP/mostPopularController.php');
           if(isset($_POST["user_id"])){
             $userId = $_SESSION["user_id"];}
 
-            $products = retrieveProducts($db);
+            $products = retrieveMonthlyProducts($db);
             if($products)
             {
               foreach($products as $p)
