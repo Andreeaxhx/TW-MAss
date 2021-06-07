@@ -1,7 +1,8 @@
 <?php
+//include '../bd/bd.php';
 include('../PHP/start_session.php');
 include('../PHP/makePDF.php');
-include '../bd/bd.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -31,9 +32,9 @@ include '../bd/bd.php';
       <?php include('./navbars/navbarLogedIn.php'); ?>
     </header>
 
-    <form action="products.php"  method="POST">
+    <!-- <form action="products.php"  method="POST">
       <input type="submit" value="Create a 1 PDF" name='submitBtn'>
-    </form>
+    </form> -->
 
     <section>
 
@@ -88,6 +89,20 @@ include '../bd/bd.php';
         }
 
       ?>
+
+        <form action="products.php" method="POST">
+            <select name="order">
+                <option value="" disabled selected>Order top by</option>
+                <option value="createdAt">Newest</option>
+                <option value="productPrice">Price</option>
+            </select>
+            <select name="type">
+                <option value="" disabled selected>Order top by</option>
+                <option value="pdf">PDF</option>
+                <option value="html">HTML</option>
+            </select>
+            <input type="submit" name="submit-btn" value="Choose options">
+        </form>
 
       <br><br>
       <div id="response"></div>
