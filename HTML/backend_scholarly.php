@@ -167,9 +167,43 @@
             <li>
                 Stoica Sabina-Delia
                 <ol>
-                    <li>Implementarea opțiunii de feedback</li>
+                    <li>Implementarea opțiunii de feedback (butoane de like si unlike)</li>
+                    <ul>
+                        <li>Product Likes Controller:</li>
+                        <p>Scriptul care se ocupa de feedbackul userilor pentru un produs contine urmatoarele functii:</p>
+                        <p>- hasLike(), care verifica daca, pentru un user, a fost dat like la un produs sau nu</p>
+                        <p>- likeProduct(), care prin intermediul functiei hasLike verifica daca userul poate da like unui produs</p>
+                        <p>- unlikeProduct(), care prin intermediul functiei hasLike verifica daca userul poate da unlike unui produs</p>
+                    </ul>
+
                     <li>Asocierea preferințelor cu produse și sfauturi => generarea de sfaturi</li>
+                    <ul>
+                        <li>Recommend Me Controller:</li>
+                        <p>Scriptul care se ocupa de recomandarile de produse si sfaturi pentru fiecare user este impartit astfel:</p>
+                        <p>- returnCategoryAdvices(), care generaza sfaturile potrivite userului pe baza tagurilor specifice anumitor categorii de produse</p>
+                        <p>- RecommendMe(), care asambleaza toate produsele si sfaturile ce se pot genera pe baza preferintelor userului</p>
+                    </ul>
                     <li>Generarea de clasamente (feedback)</li>
+                    <ul>
+                        <li>Most Popular Controller:</li>
+                        <p>Scriptul care genereaza un top al celor mai populare produse, bazat pe numarul de likeuri al fiecarui produs</p>
+                        <p>- countLikes() este functia care numara likeurile fiecarui produs din baza de date</p>
+                        <p>- returnProducts() returneaza produsele ce au macar 1 like (cu toate detaliile: nume, etc)</p>
+                        <p>- generateRanking() generaza topul celor mai populare produse, cu ajutorul functiei anterioare</p>  
+                    </ul>
+                    <li>Alte completari</li>
+                    <ul>
+                        <li>Products:</li>
+                        <p>Pe pagina de products au fost imbinate toate conceptele mentionate mai sus</p>
+                        <p>- afisarea butonului de like/unlike = functionalitatea acestuia</p>
+                        <p>- afisarea recomandarilor pentru user</p>
+                        <p>- generarea topului cu cele mai populare produse la un moment dat</p>  
+
+                        <li>Display Product:</li>
+                        <p>Mici modificari (de ex: crearea variabilei userId), motivul fiind unele erori care apareau in momentul generarii de sfaturi (nu se facea asocierea corect in baza de date)</p>
+                        
+                    </ul>
+
                 </ol>
             </li>
             <br><br>
