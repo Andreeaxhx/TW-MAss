@@ -9,60 +9,76 @@ $email = "";
 $password = "";
 
 $errors = array();
-//conn to db
 
-//$db = mysqli_connect('remotemysql.com', 'cL0nbtnGzn', 'Wxj7CaYFCi', 'cL0nbtnGzn') or die("could not connect");
-
-//register user
-
-
-if(isset($_POST['register']))
+function checkIfExists($connection, string $username, string $email)
 {
 
-if(isset($_POST['username'])){
-	$username = mysqli_real_escape_string($db, $_POST['username']);}
 
-if(isset($_POST['email'])){
-	$email = mysqli_real_escape_string($db, $_POST['email']);}
+	$user_check = "SELECT * FROM user WHERE username = '$username' or email = '$email'";
+	$result = mysqli_query($connection, $user_check);
 
-if(isset($_POST['password'])){
-	$password = mysqli_real_escape_string($db, $_POST['password']);}
+	$user = mysqli_fetch_assoc($result);
+
+	if ($user)
+	{
+		if($user['username'] === $username)
+			{
+				return array("result"=>false,"error" => "username already exists");
+				// if($user['email'] === $email)
+				// 	{
+				// 		return array("result"=>false,"error" => "email already exists";
+				// 	}
+			}
+		else{
+			return array("result"=>true);
+
+		}
+		
+	}
+}
+
+
 
 
 //form validation
 
-if(empty($username)) {array_push($errors, "username is required");}
-if(empty($email)) {array_push($errors, "email is required");}
-if(empty($password)) {array_push($errors, "password is required");}
+// if(empty($username)) {array_push($errors, "username is required");}
+// if(empty($email)) {array_push($errors, "email is required");}
+// if(empty($password)) {array_push($errors, "password is required");}
 
 //check for existing username
 
-$user_check = "SELECT * FROM user WHERE username = '$username' or email = '$email' LIMIT 1";
-
-$result = mysqli_query($db, $user_check);
-$user = mysqli_fetch_assoc($result);
-
-if ($user)
-{
-	if($user['username'] === $username){array_push($errors, "username already exists");}
-	//if($user['email'] === $email){array_push($errors, "email already exists");}
-}
 
 //register the user
-
-if(count($errors) == 0){
+function registerUser($connection, string $username, string $email, string $password)
+{
 	$password_enc = md5($password); //encryption
-	$query = "INSERT INTO user (username, email, password,rank,age,gender VALUES ('$username', '$email', '$password_enc','user','','');";
-	mysqli_query($db, $query);
-	$_SESSION['user_id']  = mysqli_insert_id($db);
+	$query = "INSERT INTO user VALUES (DEFAULT, '$username', '$email', '$password_enc','user',NULL,NULL);";
+	$insert = mysqli_query($connection, $query);
+
+
+
+	if ($insert)
+	{
+		return array("result"=>true);
+	}
+	else
+	{
+		return array("result"=>false,"error" => mysqli_error($connection));
+	}
+	
+
+
+	$_SESSION['user_id']  = mysqli_insert_id($connection);
 	$_SESSION['username'] = $username;
 	$_SESSION['rank'] = 'user';
 	$_SESSION['success'] = "you are now logged in";
 
 	header('location: ../HTML/after_register.php');
 
+
 }
 
 	//session_destroy();
-}
+
 ?>

@@ -68,6 +68,7 @@
             if($query->num_rows > 0){
                 $col = 0;
                 $order="productPrice";
+            
                 switch ($order) {
                     case "createdAt":
                         $name = "newest";
@@ -119,15 +120,19 @@
                         $txt = "</table>";
                         fwrite($myfile, $txt);
                         fclose($myfile);
-                        
-                        header('Content-Type: application/octet-stream');
-                        header('Content-Disposition: attachment; filename='.basename('top.html'));
-                        header('Expires: 0');
-                        header('Cache-Control: must-revalidate');
-                        header('Pragma: public');
-                        header('Content-Length: ' . filesize('top.html'));
-                        readfile('top.html');
 
+
+                        
+                        // header('Content-Type: application/octet-stream');
+                        // header('Content-Disposition: attachment; filename='.basename('top.html'));
+                        // header('Expires: 0');
+                        // header('Cache-Control: must-revalidate');
+                        // header('Pragma: public');
+                        // header('Content-Length: ' . filesize('top.html'));
+                        // readfile('top.html');
+                        ?>
+                        <a href="uploads/top.html" download="<?php echo "top.html" ?>"><?php echo $row['name']; ?></a>
+                <?php
             }
             
     }
