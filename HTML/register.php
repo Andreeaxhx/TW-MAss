@@ -24,6 +24,43 @@
       <!--navigation bar-->
 
       <?php include('./navbars/navbarLogedIn.php'); ?>
+
+      <?php
+        if(isset($_POST["register"]))
+        {
+            // $username = $_POST["username"];
+            // $email = $_POST["email"];
+            // $password = $_POST["password"];
+
+            if(isset($_POST['username'])){
+                $username = mysqli_real_escape_string($db, $_POST['username']);}
+
+            if(isset($_POST['email'])){
+                $email = mysqli_real_escape_string($db, $_POST['email']);}
+
+            if(isset($_POST['password'])){
+                $password = mysqli_real_escape_string($db, $_POST['password']);}
+
+
+            $check = checkIfExists($db, $username, $email);
+            //echo $check;
+            if($check["result"]){
+
+              $add = registerUser($db,$username,$email,$password);
+              if($add["result"])
+              {
+                  header("Location: ../HTML/after_register.php");
+              }
+              else
+              {
+                  echo $add["error"];
+              }
+          }
+          else echo $check["error"];
+        }
+
+    ?>
+
     </header>
 
       <section id="showcase">

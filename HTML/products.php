@@ -7,33 +7,33 @@ include('../PHP/makePDF.php');
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Affordable...">
-    <meta name="keywords" content="andreea, delia, tudor">
-    <meta name="author" content="Andreea, Delia, Tudor">
-    <title>MASS | Welcome</title>
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/products.css">
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="Affordable...">
+        <meta name="keywords" content="andreea, delia, tudor">
+        <meta name="author" content="Andreea, Delia, Tudor">
+        <title>MASS | Welcome</title>
+        <link rel="stylesheet" href="../CSS/style.css">
+        <link rel="stylesheet" href="../CSS/products.css">
+    </head>
 
-  
+
 <body>
     <header>
-      <div class="container">
+    <div class="container">
         <div id="branding">
-          <h1>Your virtual Beauty Assistant</h1>
+            <h1>Your virtual Beauty Assistant</h1>
         </div>
-      </div>
+    </div>
 
-      <!--navigation bar-->
+    <!--navigation bar-->
 
-      <?php include('./navbars/navbarLogedIn.php'); ?>
-      <?php include('../PHP/productLikesController.php');?>
-      <?php include('../PHP/mostPopularController.php');?>
-      <?php include('../PHP/recommendMeController.php');?>
-      
+    <?php include('./navbars/navbarLogedIn.php'); ?>
+    <?php include('../PHP/productLikesController.php');?>
+    <?php include('../PHP/mostPopularController.php');?>
+    <?php include('../PHP/recommendMeController.php');?>
+
 
         <?php
         /**
@@ -45,14 +45,14 @@ include('../PHP/makePDF.php');
         {
             $productId = rawurldecode($_GET["product_id"]);
             $like = likeProduct($db, $userId, $productId);
-             if($like["result"])
-             {
-                 header("Location:". $_SERVER["PHP_SELF"]);
-             }
-             else
-             {
-                 echo $like["error"];
-             }
+            if($like["result"])
+            {
+                header("Location:". $_SERVER["PHP_SELF"]);
+            }
+            else
+            {
+                echo $like["error"];
+            }
         }
 
         if(isset($_GET["unlike"]) && isset($_GET["product_id"]))
@@ -73,63 +73,93 @@ include('../PHP/makePDF.php');
 
     <section>
         <br/>
-        <h2 style="text-align: center;">Most Popular</h2>
-        <?php
-        $popular = generateRanking($db);
-        if(count($popular))
-        {
-           echo '<div class="row">';
+        
 
-           foreach($popular as $pp)
-           {
-               ?>
-
-               <div class="column">
-                   <figure class="products">
-                       <img class="products" style="object-fit: contain; width: 320px; height: 320px;" src="../PHP/uploads/<?php echo $pp["fileName"];?>" alt="fdt">
-                       <figcaption>
-                           <?php echo $pp["productTitle"];?>
-                           <br>
-                           <?php echo $pp["catName"];?>
-                           <br/>
-                           <?php
-                           $likes = countLikes($db, $pp["id"])
-                               ?>
-                           [<b><?php echo $likes;?></b>]
-                           <?php
-                           if(hasLike($db,$userId, $pp["id"]))
-                           {
-                               ?>
-                              <a href="<?php echo $_SERVER["PHP_SELF"];?>?unlike&product_id=<?php echo $pp["id"];?>">Unlike</a>
-                               <?php
-                           }
-                           else
-                           {
-                               ?>
-                               <a href="<?php echo $_SERVER["PHP_SELF"];?>?like&product_id=<?php echo $pp["id"];?>">Like</a>
-                               <?php
-                           }
-                           ?>
-                       </figcaption>
-                   </figure>
-               </div>
-
-            <?php
-           }
-
-           echo "</div>";
+     <!-- Ajax function -->
+    <script>
+        function displayCat(str, user_id) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("response").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "../PHP/displayProducts.php?id=" + str + "&user_id=" + user_id, true);
+            xmlhttp.send();
         }
-        else
-        {
-            echo "Nothing to show right now!";
+    displayCat("18");
+
+        function displayTops(tops) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("response").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "../PHP/displayTop.php?order=" + tops, true);
+            xmlhttp.send();
+        }
+        function displayMostPopular() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("response").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "../PHP/topPopularProducts.php" , true);
+            xmlhttp.send();
+        }
+    
+    </script>
+    <br>
+    <!-- Create all the cat buttons -->
+    <?php
+        $query = $db->query("SELECT catName,id FROM productCategories");
+        while($row = $query->fetch_assoc()){
+            $catName = $row["catName"];
+            $catId = $row["id"];
+        ?>
+            <button type="button"  onclick="displayCat(<?php echo $catId; ?>,<?php echo $userId; ?>)"><?=$catName?></button>
+        <?php
         }
         ?>
+        <br>
+        <?php
+        
+            $tops = array("Newest", "Product Price");
+            $tops1 = array("createdAt", "productPrice");
+            for($i=0; $i < count($tops); $i++)
+            {
+                ?>
+                <button type="button" value=<?=$tops1[$i]?> onclick="displayTops(value)"><?=$tops[$i]?></button>
+                <?php
+            }
+            
+        ?>
+        <button type="button" onclick="displayMostPopular()">Most popular</button>
+
+        <form action="products.php" method="POST">
+            <select name="order">
+                <option value="createdAt">Newest</option>
+                <option value="productPrice">Price</option>
+                <option value="popular" disabled selected>Popular</option>
+            </select>
+            <select name="type">
+                <option value="pdf">PDF</option>
+                <option value="html">HTML</option>
+            </select>
+            <input type="submit" name="submit-btn" value="Choose options">
+        </form>
+
+      <br><br>
+      <div id="response"></div>
+
         <br/>
         <h2 style="text-align: center;">Recommendations</h2>
         <?php
 
         $data = recommendMe($db,$_SESSION["user_id"]);
-  
+
         if($data["result"])
         {
             /**
@@ -190,6 +220,7 @@ include('../PHP/makePDF.php');
              */
             if($data["advices"])
             {
+                //echo $data["advices"][0];
                 foreach($data["advices"][0] as $a)
                 {
                     echo "<div class='row'>";
@@ -214,75 +245,6 @@ include('../PHP/makePDF.php');
         }
 
         ?>
-
-     <!-- Ajax function -->
-      <script>
-      function displayCat(str, user_id) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("response").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "../PHP/displayProducts.php?id=" + str + "&user_id=" + user_id, true);
-        xmlhttp.send();
-      }
-      displayCat("18");
-
-      function displayTops(tops) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("response").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "../PHP/displayTop.php?order=" + tops, true);
-        xmlhttp.send();
-      }
-      
-      </script>
-      <br>
-      <!-- Create all the cat buttons -->
-      <?php
-        $query = $db->query("SELECT catName,id FROM productCategories");
-        while($row = $query->fetch_assoc()){
-          $catName = $row["catName"];
-          $catId = $row["id"];
-        ?>
-          <button type="button"  onclick="displayCat(<?php echo $catId; ?>,<?php echo $userId; ?>)"><?=$catName?></button>
-        <?php
-        }
-        ?>
-      <br>
-      <?php
-      
-        $tops = array("Newest", "Product Price");
-        $tops1 = array("createdAt", "productPrice");
-        for($i=0; $i < count($tops); $i++)
-        {
-          ?>
-          <button type="button" value=<?=$tops1[$i]?> onclick="displayTops(value)"><?=$tops[$i]?></button>
-          <?php
-        }
-
-      ?>
-
-        <form action="products.php" method="POST">
-            <select name="order">
-                <option value="" disabled selected>Order top by</option>
-                <option value="createdAt">Newest</option>
-                <option value="productPrice">Price</option>
-            </select>
-            <select name="type">
-                <option value="" disabled selected>Order top by</option>
-                <option value="pdf">PDF</option>
-                <option value="html">HTML</option>
-            </select>
-            <input type="submit" name="submit-btn" value="Choose options">
-        </form>
-
-      <br><br>
-      <div id="response"></div>
 
     </section>
     <footer><p>MASS, Copyright &copy, 2021</p></footer>

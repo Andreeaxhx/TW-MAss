@@ -103,7 +103,12 @@
             <li>
                 Pădurariu Andreea
                 <ol>
+                    <li>Register user: </li>
+                    <p>Pentru partea de register al unui user, am construit</p>
+
                     <li>Register/Login user/admin</li>
+
+
                     <li>Pagina adminului: upload de produse, sfaturi, taguri etc.</li>
                     <li>Afișarea produselor nou introduse (home + products)</li>
                 </ol>

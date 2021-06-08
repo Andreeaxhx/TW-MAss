@@ -21,41 +21,41 @@
       <!--navigation bar-->
 
       <?php include('./navbars/navbarLogedIn.php'); ?>
-        <?php include('../PHP/adviceController.php');?>
-        <?php include('../PHP/productCategoryController.php');?>
+      <?php include('../PHP/adviceController.php');?>
+      <?php include('../PHP/productCategoryController.php');?>
 
-        <!-- add advice-->
-        <?php
-            if(isset($_POST["addAdvice"]))
+    <!-- add advice-->
+    <?php
+        if(isset($_POST["addAdvice"]))
+        {
+            $adviceContents = $_POST["adviceContents"];
+            $catId = $_POST["catId"];
+
+            $add = createAdvice($db,$catId,$adviceContents);
+            if($add["result"])
             {
-                $adviceContents = $_POST["adviceContents"];
-                $catId = $_POST["catId"];
+                header("Location:".$_SERVER["REQUEST_URI"]);
+            }
+            else
+            {
+                echo $add["error"];
+            }
+        }
 
-                $add = createAdvice($db,$catId,$adviceContents);
-                if($add["result"])
+        if(isset($_GET["remove"]))
+        {
+            $id = rawurldecode($_GET["remove"]);
+            $remove = deleteAdvice($db,$id);
+                if($remove["result"])
                 {
-                    header("Location:".$_SERVER["REQUEST_URI"]);
+                    header("Location". $_SERVER["PHP_SELF"]);
                 }
                 else
                 {
-                    echo $add["error"];
+                    echo $remove["error"];
                 }
-            }
-
-            if(isset($_GET["remove"]))
-            {
-                $id = rawurldecode($_GET["remove"]);
-                $remove = deleteAdvice($db,$id);
-                    if($remove["result"])
-                    {
-                        header("Location". $_SERVER["PHP_SELF"]);
-                    }
-                    else
-                    {
-                        echo $remove["error"];
-                    }
-            }
-        ?>
+        }
+    ?>
     </header>
     
     <section id="showcase">
