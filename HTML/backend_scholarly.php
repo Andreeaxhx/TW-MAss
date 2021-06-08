@@ -60,7 +60,7 @@
         </ul>
     </section>
     <section>
-        <h2>Cine ce-a făcut:</h2>
+        <h2>Împărțirea taskurilor:</h2>
         <p>
             Taskurile au fost împărțite în modul următor:
         <ul>
@@ -103,16 +103,67 @@
             <li>
                 Pădurariu Andreea
                 <ol>
-                    <li>Register user: </li>
-                    <p>Pentru partea de register al unui user, am construit</p>
-
                     <li>Register/Login user/admin</li>
+                    <ul>
+                        <li>Register user:</li>
+                        <p>Pentru partea de register al unui user, am construit două funcții (registerController.php):</p>
+                        <p>- checkIfExists(), care verifică dacă usernameul și emailul introduse de utilizator sunt în baza de date</p>
+                        <p>- registerUser(), care adaugă în tabelul ”user” o nouă intrare cuprinzând usernameul, emailul, parola și rankul (=user) utilizatorului</p>
+
+                        <li>Login user/admin:</li>
+                        <p>Pentru partea de login al unui user (admin), în fișierul loginController.php am făcut următoarele:</p>
+                        <p>- am interogat baza de date și am selectat acele linii care aveau ca valori usernameul și parola introduse</p>
+                        <p>- dacă numărul de linii selectate este mai mare ca 0, atunci utilizatorul este logat și are acces la formulare</p>
+                        <p>- totodată, am reținut id-ul, usernameul și rank-ul (după logare, un admin poate accesa pagina ”ADMIN” doar dacă rank-ul asociat este ”admin”) </p>
+                    
+                    </ul>
 
 
                     <li>Pagina adminului: upload de produse, sfaturi, taguri etc.</li>
-                    <li>Afișarea produselor nou introduse (home + products)</li>
+
+                    <ul>
+                        <li>Products:</li>
+                        <p>În cadrul paginii ”Products”, adminul are următoarele opțiuni:</p>
+                        <p>- poate încărca un nou produs: prin intermediul funcției createProduct() se poate adăuga un produs nou în tabela ”products”, doar dacă nu există deja un produs cu același nume în aceeași categorie; tot aici se folosește funcția setProductTags() care adaugă tagurile din câmpul ”Tags” în tabela ”productTags”</p>
+                        <p>- poate edita un produs: folosind funcția updateProduct() se face un update asupra liniei din tabela ”products” care are același id cu produsul selectat; tot aici se face un update cu noile taguri selectate și asupra tabelei ”productTags”</p>
+                        <p>- poate șterge un produs: folosind funcția uremoveProduct() se face linia din tabela ”products” care are același id cu produsul care a fost selectat pentru ștergere; tot aici se șterg și tagurile aferente produsului din tabela ”productTags”</p>
+
+
+
+                        <li>Product tags:</li>
+                        <p>În cadrul paginii ”Product Tags”, adminul poate face următoarele acțiuni:</p>
+                        <p>- poate adăuga noi taguri (asociate răspunsurilor la întrebările din formulare), pe care le poate asocia unei categorii de taguri; pentru asta se folosește funcția createTag() care extrage tagurile din câmpul în care le scrie utilizatorul și insertTag() care inserează tagurile în tabelul ”tagData”</p>
+                        <p>- poate șterge un tag într-o manieră similară ștergerii de produse</p>
+                      
+
+                        <li>Tag categories:</li>
+                        <p>În cadrul paginii ”Tag Categories”, adminul poate face următoarele acțiuni:</p>
+                        <p>- poate adăuga noi categorii de taguri (asociate întrebărilor din formulare), pe care le poate asocia unui părinte (nu am folosit această opțiune); pentru asta se folosește funcția createTagCategory() care inserează o nouă categorie de taguri în tabela ”tagCategories”</p>
+                        <p>- poate șterge o categorie de taguri într-o manieră similară ștergerii de produse</p>
+
+
+                        <li>Tag categories:</li>
+                        <p>În cadrul paginii ”Product Categories”, adminul are cam aceleași opțiuni:</p>
+                        <p>- poate adăuga noi categorii de produse, pe care le poate asocia unui părinte (în cazul acesta, dacă o categorie se numește ”Foundation”, ea are ca părinte categoria ”Face”, care are la rândul ei ca părinte categoria ”Makeup”); pentru asta se folosește funcția createProductCategory() care inserează în tabela ”productCategories” o nouă categorie de produse</p>
+                        <p>- poate șterge o categorie de produse într-o manieră similară ștergerii de produse</p>
+
+
+                        <li>Advices:</li>
+                        <p>În cele din urmă, în cadrul paginii ”Advice”, adminul poate face următoarele lucruri:</p>
+                        <p>- poate adăuga un nou sfat pe care trebuie să-l asocieze unei categorii de prodse; pentru asta, se folosește funcția createAdvice() care inserează în tabela ”adviceData” un nou sfat și categoria din care face el parte</p>
+                        <p>- poate șterge un sfat într-o manieră similară ștergerii de produse</p>
+                    
+                    </ul>
+
+
+
+                    <li>Afișarea produselor nou introduse (home.php)</li>
+                    <ul>
+                        <li>Pe pagina de home sunt afișate cele mai noi produse încărcate de admin (produsele din ultima lună); pentru asta, pe pagina home.php se folosește funcția retrieveMonthlyProducts() care selectează din tabela ”products” acele produse care au fost încărcate în luna curentă.</li>
+                    </ul>
                 </ol>
             </li>
+            <br><br>
             <li>
                 Stoica Sabina-Delia
                 <ol>
@@ -121,15 +172,32 @@
                     <li>Generarea de clasamente (feedback)</li>
                 </ol>
             </li>
+            <br><br>
             <li>
                 Vasilache Tudor
                 <ol>
                     <li>Construirea chestionarelor (tumay + makeup)</li>
+                        <p> În cadrul acestui task, am construit 2 formulare cu ajutorul cărora utilizatorii pot să își înregistreze trăsăturile faciale și 
+                        preferințele în materie de produse de make-up și skin-care. Acestea funcționează prin preluare raspunsurilor de la utilizatori (care
+                        vin sub formă unor ID-uri ale unor tag) și care mai tarziu sunt introduse în baza de date si recunoscute după un număr de interogari SQL. </p>
                     <li>Inserarea răspunsurilor utilizatorilor în baza de date</li>
                     <li>Organizarea produselor pe categorii</li>
+                        <p>În cadrul paginii products.php se pot vedea toate produsele de pe site-ul nostru. În prima parte a paginii, există butoanele ce împart produsele
+                        în categorii. Cu ajutorul acestor butoane, se apelează o funcție ce folosește AJAX, care la rândul ei afișează ca raspuns informațiile trimise de catre 
+                        pagina diplayCategories.php.</p>
                     <li>Generarea de clasamente (preț, dată)</li>
-                    <li>Exportul clasamentelor în format HTML, RSS și PDF</li>
-
+                        <p>Aceleași tehnologii ca la afișarea categoriilor se folosesc și pentru a afișare clasamantele.</p>
+                    <li>Exportul clasamentelor în format HTML, PDF</li>
+                        <p>Pentru a exporta clasamantele în format PDF am folosit libraria mpdf. Utilizatorul are sub butoanele clasamentelor 2 meniuri tip dropdown
+                        în cadrul cărora poate alege ce clasament vrea să exporteze și în ce format.</p>
+                    <li>Altele:</li>
+                        <ul>
+                            <li>integrarea codului colegilor în proiectul principal;</li>
+                            <li>construirea tabelelor în baza de date;</li>
+                            <li>bug fixies;</li>
+                            <li>creare de fișiere ajutătoare (navbarLogedIn.php, after_register.php etc.);</li>
+                            <li>testarea codului</li>
+                        </ul>
                 </ol>
             </li>
         </ul>
