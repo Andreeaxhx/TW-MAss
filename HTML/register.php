@@ -41,9 +41,7 @@
             if(isset($_POST['password'])){
                 $password = mysqli_real_escape_string($db, $_POST['password']);}
 
-
             $check = checkIfExists($db, $username, $email);
-            //echo $check;
             if($check["result"]){
 
               $add = registerUser($db,$username,$email,$password);

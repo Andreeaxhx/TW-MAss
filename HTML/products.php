@@ -167,6 +167,7 @@ include('../PHP/makePDF.php');
              */
             if($data["products"])
             {
+                echo "products";
                 echo "<div class='row'>";
                 foreach($data["products"] as $p)
                 {
